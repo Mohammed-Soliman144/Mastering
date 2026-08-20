@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- 1- Charset UTF-8 supporting all characters of languages -->
+    <meta charset="UTF-8" />
+    <!-- 2- Viewport to support responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 3- Title in 50 - 60 character to enhance seo -->
+    <title>Head Elements - Expressive Title in 50 - 60 characters</title>
+    <!-- 4- Main Meta Tags -->
+    <!-- Meta Description in 150 - 160 character to enhance SEO -->
+    <meta
+      name="description"
+      content="Describe your webpage in 150 - 160 characters to enhance SEO"
+    />
+    <!-- Google ignored tag of Keywords but still important for other search engines -->
+    <meta
+      name="keywords"
+      content="Main Keywords of webpage to support other search engines except google"
+    />
+    <!-- Meta author of webpage -->
+    <meta name="author" content="Muhammad Soliman - Software Engineer" />
+    <!-- Meta Robots to make search engines and crawler crawl and index, follow your webpage -->
+    <meta name="robots" content="index, follow" />
+    <!-- OR noindex, nofollow -->
+    <!-- <meta name="robots" content="noindex, nofollow" /> -->
+    <!-- Link to determine canonical link or domain name of webpage -->
+    <link rel="canonical" href="https://www.microdata.com/" />
+    <!-- Open Graph Meta Tags for linkedin, facebook, instagram etc... -->
+    <!-- description -->
+    <meta
+      property="og:description"
+      content="short breif description of webpage"
+    />
+    <meta property="og:title" content="title of webpage" />
+    <meta property="og:image" content="https://domainname.com/imgs/hero.png" />
+    <meta property="og:url" content="https://domainname.com" />
+    <meta property="og:site_name" content="Brand Name" />
+    <meta property="og:type" content="product" />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://domainname.com/imgs/hero.png" />
+    <meta name="twitter:description" content="short Breif description" />
+    <meta name="twitter:title" content="title of webpage" />
+    <meta name="twitter:site" content="@brandhandle" />
+    <!-- dns-prefetch and preconnect links and google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo&display=swap"
+    />
+    <link rel="dns-prefetch" href="https://api.domainname.com" />
+    <!-- Manifest link to support pwa (progressive work application) -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <!-- Favicons Links -->
+    <link rel="icon" href="/icons/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/favicon.png" />
+
+    <!-- Styles -->
+    <!-- internal style -->
+    <style>
+      body {
+        background-color: #333;
+        color: #fff;
+      }
+    </style>
+    <!-- External Style -->
+    <link rel="stylesheet" href="/styles/globals.css" />
+    <!-- script application/ld+json linked data-->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Iphone 14 Pro",
+        "description": "description of product",
+        "image": "https://domainname/imgs/product.png",
+        "offers": {
+          "@type": "offer",
+          "price": "900",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <!-- Script defer -->
+    <script src="/js/bundle.js" defer></script>
+  </head>
+  <body></body>
+</html>
