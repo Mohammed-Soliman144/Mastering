@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimate Form Elements</title>
+  </head>
+  <body>
+    <!-- Ultimate Form -->
+    <!-- application/x-www-form-urlencoded => for string texts 
+        multipart/form-data => browser divide payload into two segments one segment for text strings and second one for binary file (pdf images)
+     -->
+    <form
+      action="/submit"
+      method="POST"
+      enctype="multipart/form-data"
+      novalidate
+    >
+      <!-- Text inputs -->
+      <fieldset>
+        <legend>Text Inputs</legend>
+        <label for="username">username: </label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="ahmed_sayed11"
+          autocomplete="username"
+          minlength="3"
+          maxlength="20"
+          required
+        />
+        <label for="email">Email: </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="email"
+          required
+        />
+        <label for="age">Age: </label>
+        <input
+          type="number"
+          id="age"
+          name="age"
+          min="18"
+          max="50"
+          step="1"
+          value="20"
+          required
+        />
+        <label for="password">Password: </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="new-password"
+          placeholder="password must be include 1 special character, 1 lower letter and 1 upper letter and at least 8 characters"
+          minlength="8"
+          required
+        />
+        <label for="phone">Phone: </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          pattern="[\+]?[0-9]{11,15}"
+          placeholder="+20125458796"
+          required
+        />
+        <label for="search">Search: </label>
+        <input
+          type="search"
+          id="search"
+          name="search"
+          placeholder="write a keyword you search"
+          autocomplete="off"
+        />
+      </fieldset>
+      <!-- Date Inputs -->
+      <fieldset>
+        <legend>Date Inputs</legend>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" />
+        <label for="month">Month</label>
+        <input type="month" id="month" name="month" />
+        <label for="week">Week</label>
+        <input type="week" id="week" name="week" />
+        <label for="datetime">Datetime: </label>
+        <input type="datetime" id="datetime" name="datetime" />
+        <label for="datetime-local">Datetime Local: </label>
+        <input
+          type="datetime-local"
+          id="datetime-local"
+          name="datetime-local"
+        />
+      </fieldset>
+      <!-- Radio and Selection Inputs -->
+      <fieldset>
+        <legend>Radio and Selection Inputs</legend>
+        <label for="">Select your gender: </label>
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" checked />
+        <label for="female">Female</label>
+        <hr />
+        <label for="">Choose all Browsers used:</label>
+        <input type="checkbox" name="browsers" id="mozilla" value="mozilla" />
+        <label for="mozilla">Mozilla</label>
+        <input type="checkbox" name="browsers" id="chrome" value="chrome" />
+        <label for="chrome">Chrome</label>
+        <input type="checkbox" name="browsers" id="edge" value="edge" />
+        <label for="edge">Edge</label>
+        <input type="checkbox" name="browsers" id="safari" value="safari" />
+        <label for="safari">Safari</label>
+        <hr />
+        <label for="country">Select your country: </label>
+        <select name="country" id="country" multiple size="4">
+          <option value="" selected disabled>--Select your Country--</option>
+          <optgroup label="North Africa">
+            <option value="eg">Egypt</option>
+            <option value="al">Algeria</option>
+            <option value="mo">Morocco</option>
+          </optgroup>
+          <optgroup label="Europe">
+            <option value="fr">France</option>
+            <option value="au">Austria</option>
+            <option value="en">England</option>
+          </optgroup>
+        </select>
+        <hr />
+        <label for="skills">Skills: </label>
+        <!-- name of datalist set for input type=text list="idOfDataListName" name="nameofDatalist" -->
+        <!-- datalist only takes id but do not take name -->
+        <input list="languages" id="skills" name="skills" />
+        <datalist id="languages">
+          <option value="Java"></option>
+          <option value="C++"></option>
+          <option value="Python"></option>
+          <option value="Node.js"></option>
+          <option value="Express"></option>
+          <option value="HTML5"></option>
+          <option value="CSS3"></option>
+          <option value="Javascript"></option>
+          <option value="React"></option>
+        </datalist>
+      </fieldset>
+      <fieldset>
+        <legend>Url | Range | Color | File | Hiddden Inputs</legend>
+        <!-- always use output with range not meter or progress -->
+        <label for="range">Range</label>
+        <input
+          type="range"
+          id="range"
+          name="range"
+          value="10"
+          min="0"
+          max="100"
+          step="5"
+        />
+        <output id="displayRange" for="range">10</output>
+        <label for="url">Url</label>
+        <input
+          type="url"
+          id="url"
+          name="url"
+          placeholder="https://www.google.com"
+        />
+        <label for="color">Color</label>
+        <input type="color" id="color" name="color" value="#333" />
+        <label for="resume">File</label>
+        <input type="file" id="resume" name="resume" accept="application/pdf" />
+        <label for="album-images">Image</label>
+        <!-- make name images[] to stands for the type of data is array -->
+        <input
+          type="file"
+          id="album-images"
+          name="image[]"
+          multiple
+          accept="image/*"
+        />
+        <input type="hidden" id="key" name="key" value="#df4fd5789797987" />
+      </fieldset>
+      <fieldset>
+        <legend>Textarea</legend>
+        <label for="complain">Complain: </label>
+        <textarea name="complain" id="complain" rows="5"></textarea>
+      </fieldset>
+      <fieldset>
+        <legend>Progress and Meter</legend>
+        <!-- only progress use for task completion -->
+        <label for="completion">Task Completion</label>
+        <progress id="completion" name="task" value="10" max="100"></progress>
+        <hr />
+        <!-- Meter using for password strength, disk management space, battery level but no for task completion -->
+        <label for="pwd-strength">Password Strength</label>
+        <meter
+          value="10"
+          min="0"
+          max="100"
+          low="30"
+          high="90"
+          optimum="80"
+          id="pwd-strength"
+          name="pwd-strength"
+        ></meter>
+      </fieldset>
+      <div class="form-actions">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+        <button type="button">Send</button>
+      </div>
+    </form>
+  </body>
+</html>
