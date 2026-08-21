@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Header Component - HTML5 Based</title>
+  </head>
+  <body>
+    <!-- Simple Header with Navigation -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <!-- always alt of logo company image is only Company Name not describe image as normal and if has span or company name as visual text so keep alt as empty that behavior make it more semantic -->
+          <a href="/">
+            <img src="/imgs/logo.png" alt="" />
+          </a>
+          <span>Company Name</span>
+        </div>
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- ================================================ -->
+    <!-- 2- Header with logo, navigation and search -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="/imgs/logo.png" alt="Company Name" />
+          </a>
+        </div>
+        <nav class="main-nav" label="Main Navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+          </ul>
+        </nav>
+        <form action="/submit" role="search" method="POST">
+          <label for="search" class="sr-only">Search Key: </label>
+          <input
+            type="search"
+            id="search"
+            name="search"
+            placeholder="Write a search key"
+            autocomplete="off"
+          />
+          <button type="submit" role="img" aria-label="Search Button">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path fill="currentColor" d="" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </header>
+    <!-- ============================================ -->
+    <!-- 3- Header with logo,navigation, search and header Actions -->
+    <header class="main-header">
+      <div class="header-top">
+        <div class="container">
+          <div class="logo">
+            <a href="/">
+              <img src="/imgs/logo.png" alt="" />
+            </a>
+            <span>Company Name</span>
+          </div>
+          <form action="/submit" role="search" method="POST">
+            <label for="search" class="sr-only">Search Key: </label>
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Write a search key"
+              autocomplete="off"
+            />
+            <button type="submit" role="img" aria-label="Search Button">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path fill="currentColor" d="" />
+              </svg>
+            </button>
+          </form>
+          <div class="header-actions" aria-label="Header Actions">
+            <a
+              href="/dashboard/accounts/my-account/"
+              target="_blank"
+              rel="noopener"
+              title="Goto your account"
+              >Account</a
+            >
+            <a
+              href="/dashboard/accounts/my-account/cart/"
+              target="_blank"
+              rel="noopener"
+              title="Goto your purchasing"
+              >Cart (0)</a
+            >
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav" label="Main Navigation">
+        <div class="container">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- ============================================ -->
+    <!-- 4- Header with Mega Menu with button has aria-expanded=false and aria-controls=dropdown-menu [idName] div.dropdown-menu-content#dropdown-menu>div.dropdown-menu-column>(h4>{title}+ul>li*4>a[href="/"]) -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="/imgs/logo.png" alt="" />
+            <span>Company Name</span>
+          </a>
+        </div>
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+            <li><a href="/services">Services</a></li>
+            <!-- Other Solution for Semantic also but with a as link and button not only button -->
+            <!-- 
+            <li class="has-dropdown">
+              <a href="/products" id="toggle-btn">Products</a>
+              <button
+                type="button"
+                aria-expanded="false"
+                aria-controls="dropdown-menu-content"
+                aria-labelledby="toggle-btn dropdown-menu"
+              >
+                <span class="sr-only" id="dropdown-menu">Toggle Menu</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="" />
+                </svg>
+              </button>
+              <div class="dropdown-menu-content" id="dropdown-menu-content">
+                <div class="dropdown-menu-column">
+                  <h4>Title</h4>
+                  <ul>
+                    <li><a href="/product1">Product 01</a></li>
+                    <li><a href="/product2">Product 02</a></li>
+                    <li><a href="/product3">Product 03</a></li>
+                    <li><a href="/product4">Product 04</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li> -->
+            <li class="has-dropdown">
+              <button
+                type="button"
+                aria-expanded="false"
+                aria-controls="dropdown-menu"
+                aria-label="Toggle Dropdown Menu"
+              >
+                Products
+              </button>
+              <div class="dropdown-menu-content" id="dropdown-menu">
+                <div class="dropdown-menu-column">
+                  <h4>Categories</h4>
+                  <ul>
+                    <li><a href="#laptops">Laptops</a></li>
+                    <li><a href="#phones">Phones</a></li>
+                    <li><a href="#accessories">Accessories</a></li>
+                    <li><a href="#tvs">Tvs</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown-menu-column">
+                  <h4>Products</h4>
+                  <ul>
+                    <li><a href="/product1">Product 01</a></li>
+                    <li><a href="/product2">Product 02</a></li>
+                    <li><a href="/product3">Product 03</a></li>
+                    <li><a href="/product4">Product 04</a></li>
+                    <li><a href="/product5">Product 05</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown-menu-column">
+                  <figure>
+                    <img
+                      src="/imgs/feature.png"
+                      alt="describe image of feature"
+                    />
+                    <figcaption>Latest Features Products</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/others">Others</a></li>
+            <li><a href="/specials">Specials</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- ============================================ -->
+    <!-- 5- Header with Mobile Menu Button -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="/imgs/logo.png" alt="" />
+            <span>Company Name</span>
+          </a>
+        </div>
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+            <li><a href="/services">Services</a></li>
+          </ul>
+        </nav>
+        <form action="/submit" method="POST" role="search" novalidate>
+          <label for="search" class="sr-only">Search: </label>
+          <input
+            type="search"
+            id="search"
+            name="search"
+            placeholder="Write a key search"
+            autocomplete="off"
+          />
+          <button type="submit" aria-label="Search Button">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path fill="currentColor" d="" />
+            </svg>
+          </button>
+        </form>
+        <button
+          type="button"
+          aria-expanded="false"
+          id="toggle-btn"
+          aria-controls="dropdown-menu"
+          aria-label="Toggle Mobile Menu"
+          hidden
+        >
+          <span aria-labelledby="toggle-btn" class="sr-only">Toggle Menu</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path fill="currentColor" d="" />
+          </svg>
+        </button>
+        <div
+          class="mobile-nav"
+          id="dropdown-menu"
+          aria-label="Dropdown Mobile Menu"
+        >
+          <nav class="mobile-nav" aria-label="Mobile Navigation">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contacts">Contacts</a></li>
+              <li><a href="/services">Services</a></li>
+            </ul>
+          </nav>
+          <form action="/submit" method="POST" role="search" novalidate>
+            <label for="search-mobile" class="sr-only">Search: </label>
+            <input
+              type="search"
+              id="search-mobile"
+              name="search-mobile"
+              placeholder="Write a key search"
+              autocomplete="off"
+            />
+            <button type="submit" aria-label="Search">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path fill="currentColor" d="" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- ============================================ -->
+    <!-- 6- Header with Hero Section -->
+    <header class="main-header">
+      <div class="header-top">
+        <div class="container">
+          <div class="logo">
+            <a href="/">
+              <img src="/imgs/logo.png" alt="" />
+              <span>Company Name</span>
+            </a>
+          </div>
+          <nav class="main-nav" aria-label="Main Navigation">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contacts">Contacts</a></li>
+              <li><a href="/services">Services</a></li>
+            </ul>
+          </nav>
+          <form action="/submit" method="POST" role="search" novalidate>
+            <label for="search" class="sr-only">Search: </label>
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Write a key search"
+              autocomplete="off"
+            />
+            <button type="submit" aria-label="Search">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path fill="currentColor" d="" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <main class="main-content">
+      <!-- Note when use aria-labelledby attribute is set on element need to label text (has not label text) which is points to other element has id and label text -->
+      <section class="hero-section" aria-labelledby="hero-heading">
+        <div class="container">
+          <img src="/imgs/hero.png" alt="describe hero image" />
+          <div class="hero-content">
+            <h1 id="hero-heading">Main Heading Title</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Voluptatem modi, magni iusto, officiis dignissimos impedit facere,
+              velit quos tenetur necessitatibus autem aliquid. Accusantium
+              tempore et fugiat dolor non adipisci voluptatibus.
+            </p>
+            <button type="button" aria-label="Get Started Button">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
