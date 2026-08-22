@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      A11y Aside Components (title within 50 - 60 characters enhance SEO)
+    </title>
+  </head>
+  <body>
+    <!-- 1- Simple Sidebar (not vital relationship) -->
+    <!-- First Note for aside
+        aside always contains widget as nav or sections for related links and there are two types of related links:
+            A- if there is vital relationship between related links and webpage must be set aside inside main as below:
+                main>aside
+            B- if there is not vital relationship between related links and webpages must be set aside after main as siblings as below main+aside
+                Examples of not vital relationship:
+                    -- Paid Advertisements for other companies
+                    -- Advertisements for same sub products of own company (as cross-promotion)
+                    -- Authority which represents auhtor posts and author bio and image latest news about it
+     -->
+    <main>
+      <div class="container">
+        <section class="hero">
+          <h1>Main Heading Title</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum,
+            voluptas voluptates similique illo dignissimos nobis provident in
+            itaque consequatur dolorum aut blanditiis aliquam obcaecati, cumque
+            eligendi ipsam quae suscipit voluptatibus?
+          </p>
+        </section>
+      </div>
+    </main>
+    <aside class="sidebar" aria-label="sidebar">
+      <div class="container">
+        <section class="widget author-widget" aria-labelledby="author">
+          <h3 id="author">Author name</h3>
+          <figure>
+            <img src="/imgs/author.png" alt="Author Name" />
+            <figcaption>all author bio and summary of bio here</figcaption>
+          </figure>
+        </section>
+        <nav class="widget related-links" aria-labelledby="related-links">
+          <h3 id="related-links">Related Links</h3>
+          <ul>
+            <li><a href="#suggestions">Customers Suggestions</a></li>
+            <li><a href="#quality">Quality per prices</a></li>
+            <li><a href="#redeem">Redeem Points</a></li>
+            <li><a href="#brands">Latest Brands</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+    <!-- ============================================== -->
+    <!-- 2- Sidebar with categories (not vital relationship)-->
+    <main>
+      <!-- Main Content -->
+    </main>
+    <aside class="sidebar" aria-label="Categories Sidebar">
+      <nav class="widget" aria-labelledby="categories">
+        <h3 id="categories">Categories</h3>
+        <ul>
+          <li>
+            <a href="/categories/web-design">Web Design</a><span>25 Posts</span>
+          </li>
+          <li>
+            <a href="/categories/frontend/javascript">Javascript</a
+            ><span>30 Posts</span>
+          </li>
+          <li>
+            <a href="/categories/frontend/frameworks/react"
+              >React Latest Updates</a
+            ><span>40 Posts</span>
+          </li>
+          <li>
+            <a href="/categories/web/security-issues">Web Security Issues</a
+            ><span>30 Posts</span>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- ============================================== -->
+    <!-- 3- Sidebar with Search (vital relationship) -->
+    <main>
+      <!-- Main Content -->
+      <aside class="sidebar" aria-label="Quick Search of Daily Posts">
+        <section class="search-widget" aria-labelledby="search-posts">
+          <h3 id="search-posts">Quick Search of Daily Posts</h3>
+          <form action="/submit" method="POST" role="search" novalidate>
+            <label for="search" class="sr-only">Search: </label>
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Write a keyword"
+              autocomplete="off"
+            />
+            <button type="submit" aria-label="Search Submit Button">
+              Search
+            </button>
+          </form>
+        </section>
+      </aside>
+    </main>
+    <!-- ============================================== -->
+    <!-- 4- Sidebar with Recent Posts (vital relationship) -->
+    <main>
+      <!-- Main Content -->
+      <aside class="sidbar" aria-label="Recent Posts">
+        <nav class="widget" aria-labelledby="recent-posts">
+          <h3 id="recent-posts">Recent Posts</h3>
+          <ul>
+            <li>
+              <a href="/blog/posts/post-1" id="legacy-js"
+                >Legacy Methods of Javascript</a
+              >
+              <span
+                >Published at:
+                <strong
+                  ><time datetime="2026-08-25 9:00"
+                    >25 August, 2026</time
+                  ></strong
+                ></span
+              >
+            </li>
+            <li>
+              <a href="/blog/posts/post-2">New Hooks in React Canary v19</a>
+              <span
+                >Published at:
+                <strong
+                  ><time datetime="2026-05-25 9:00">25 May, 2026</time></strong
+                ></span
+              >
+            </li>
+            <li>
+              <a href="/blog/posts/post-3"
+                >New Mutation Array Methods JS ES6+</a
+              >
+              <span
+                >Published at:
+                <strong
+                  ><time datetime="2026-02-25 9:00"
+                    >25 February, 2026</time
+                  ></strong
+                ></span
+              >
+            </li>
+            <li>
+              <a href="/blog/posts/post-4"
+                >Performance Optimization and Rendering issues</a
+              >
+              <span
+                >Published at:
+                <strong
+                  ><time datetime="2026-03-25 9:00"
+                    >25 Merch, 2026</time
+                  ></strong
+                ></span
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <section class="js-posts" aria-labelledby="legacy-js">
+        <h3>Recent Posts - Javascript</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+          dolorum enim nobis debitis possimus! Natus id officiis odit delectus
+          culpa est nemo reprehenderit eius neque molestias. Praesentium
+          deleniti sapiente iste.
+        </p>
+      </section>
+    </main>
+    <!-- ============================================== -->
+    <!-- 5- Sidebar with Newsletter (vital relationship) -->
+    <main>
+      <!-- Main Content -->
+      <aside class="sidebar" aria-label="Newsletter Subscription">
+        <section class="widget" aria-labelledby="subscribe">
+          <h3 id="subscribe">Newsletter Subcription</h3>
+          <form action="/submit" method="POST" novalidate>
+            <label for="email" class="sr-only">Email: </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@gmail.com"
+              autocomplete="email"
+            />
+            <button type="submit" aria-label="Subscribe Submit Button">
+              Subscribe
+            </button>
+          </form>
+        </section>
+      </aside>
+    </main>
+    <!-- ============================================== -->
+    <!-- 6- Sidebar with Advertisement (not vital relationship) -->
+    <main>
+      <!-- Main Content -->
+    </main>
+    <aside class="sidebar" aria-label="Advertisements Sidebar">
+      <section class="ads" aria-labelledby="advertisements">
+        <h3 id="advetisements">
+          Get Special Offer - Buy One and take another as gift
+        </h3>
+        <figure>
+          <a
+            href="https://facebook.com/amazon/products/cheddar"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Goto Amazon Page"
+          >
+            <img src="/imgs/ad-banner.png" alt="describe image here" />
+          </a>
+          <figcaption>
+            Breif Describe of Products and its merits here
+          </figcaption>
+        </figure>
+      </section>
+    </aside>
+    <!-- ============================================== -->
+    <!-- 7- Sidebar with Navigation/Menu (vital relationship) -->
+    <main>
+      <!-- Main Content -->
+      <aside class="sidebar" aria-label="Categories Navigation Sidebar">
+        <nav class="widget" aria-labelledby="categories">
+          <h3 id="categories">Categories Links</h3>
+          <ul>
+            <li>
+              <a href="/categories/latest-updates/smartphones/product1"
+                >Product 01</a
+              >
+            </li>
+            <li>
+              <a href="/categories/latest-updates/smartphones/product2"
+                >Product 02</a
+              >
+            </li>
+            <li>
+              <a href="/categories/latest-updates/smartphones/product3"
+                >Product 03</a
+              >
+            </li>
+            <li>
+              <a href="/categories/latest-updates/smartphones/product4"
+                >Product 04</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </main>
+  </body>
+</html>
