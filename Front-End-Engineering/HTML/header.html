@@ -382,5 +382,295 @@
         </div>
       </section>
     </main>
+    <!-- ============================================ -->
+    <!-- 7- Header with Dropdown Navigation -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="/imgs/logo.png" alt="" />
+          </a>
+          <span>Company Name</span>
+        </div>
+        <nav class="main-navigation" aria-label="Main Navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+            <li class="has-dropdown">
+              <a href="/products">products</a>
+              <button
+                type="button"
+                id="dropdown-menu"
+                aria-controls="dropdown-menu-list"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-label="Dropdown Products Menu"
+              >
+                <svg
+                  role="img"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path fill="currentColor" d="" />
+                </svg>
+              </button>
+              <ul class="dropdown-menu" id="dropdown-menu-list">
+                <li><a href="/product01">Product 01</a></li>
+                <li><a href="/product02">Product 02</a></li>
+                <li><a href="/product03">Product 03</a></li>
+                <li><a href="/product04">Product 04</a></li>
+                <li><a href="/product05">Product 05</a></li>
+              </ul>
+            </li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/others">Others</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/Community">Community</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- ============================================ -->
+    <!-- 8- Header with Breadcrumb Navigation -->
+    <!-- Breadcrumb is list of links with main relation which means is ordered list (ol) and all links are nested (hierarchy order) -->
+    <!-- Breadcrumb Example - Routing
+        /products
+        /products/electronics
+        /products/electronics/laptops
+        /products/electronics/laptops/leneovo
+        and so on
+    -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="/imgs/logo.png" alt="" />
+          </a>
+          <span>Company Name</span>
+        </div>
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+            <li><a href="/careers">Careers</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <li><a href="/products">Products</a></li>
+          <li><a href="/products/milk-dairy/">Milk and Dairy</a></li>
+          <li><a href="/products/milk-dairy/cheese/">Chees</a></li>
+          <li aria-current="page" id="cheddar-cheese">Cheddar Cheese</li>
+        </nav>
+
+        <section class="milk-section" aria-labelledby="cheddar-cheese">
+          <h1>Milk and Dairy Products</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos vel,
+            labore consectetur, excepturi facilis itaque nostrum officiis
+            recusandae consequatur ad consequuntur voluptas earum eaque soluta
+            nam dolore quaerat doloribus corrupti.
+          </p>
+        </section>
+      </div>
+    </main>
+    <!-- 9- Header with Tablist -->
+    <!-- tablist is a group of buttons with role=tablist for it parent element and role tab for button connects with multiple sections with role=tabpannel and manipulate all by js -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="/imgs/logo.png" alt="" />
+          </a>
+          <span>Company Name</span>
+        </div>
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contacts">Contacts</a></li>
+            <li><a href="/careers">Careers</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="main-top">
+          <div class="tablist" role="tablist">
+            <ul class="tablist-menu" role="none">
+              <li role="none">
+                <!-- Selected one not tabindex=-1 which is focusable already -->
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="panel-dashboard"
+                  id="tab-dashboard"
+                >
+                  Dashboard
+                </button>
+              </li>
+              <li role="none">
+                <button
+                  type="button"
+                  role="tab"
+                  tabindex="-1"
+                  aria-selected="false"
+                  aria-controls="panel-analytics"
+                  id="tab-analytics"
+                >
+                  Analytics
+                </button>
+              </li>
+              <li role="none">
+                <button
+                  type="button"
+                  role="tab"
+                  tabindex="-1"
+                  aria-selected="false"
+                  aria-controls="panel-settings"
+                  id="tab-settings"
+                >
+                  Settings
+                </button>
+              </li>
+              <li role="none">
+                <button
+                  type="button"
+                  role="tab"
+                  tabindex="-1"
+                  aria-selected="false"
+                  aria-controls="panel-users"
+                  id="tab-users"
+                >
+                  Users
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-content">
+          <!-- Make all section with tabindex=0 and browser when render html5 from top to bottom as normal and user navigate between section with tab keyboard will work correctly -->
+          <section
+            tabindex="0"
+            id="panel-dashboard"
+            role="tabpannel"
+            aria-labelledby="tab-dashboard"
+          >
+            <h3>Dashboard</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Cupiditate nihil voluptates incidunt deserunt repellat quas quidem
+              quam aperiam culpa. Aspernatur repellat adipisci sint voluptatibus
+              hic voluptatum eaque temporibus. Architecto, totam?
+            </p>
+          </section>
+          <section
+            tabindex="0"
+            id="panel-analytics"
+            role="tabpannel"
+            hidden
+            aria-labelledby="tab-analytics"
+          >
+            <h3>Analytics</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+              doloremque, suscipit totam ullam repellat expedita vitae vel
+              doloribus necessitatibus, praesentium illo velit nesciunt modi
+              rerum accusantium voluptatem ab, quisquam eos.
+            </p>
+          </section>
+          <section
+            tabindex="0"
+            id="panel-settings"
+            role="tabpannel"
+            hidden
+            aria-labelledby="tab-settings"
+          >
+            <h3>Settings</h3>
+            <p>
+              Incidunt repudiandae at quo atque itaque debitis velit mollitia
+              accusantium amet quasi. Explicabo omnis possimus, aliquid nobis
+              sed provident tenetur qui optio deserunt minima saepe repellendus
+              ipsa reprehenderit, cum autem.
+            </p>
+          </section>
+          <section
+            tabindex="0"
+            id="panel-users"
+            role="tabpannel"
+            hidden
+            aria-labelledby="tab-users"
+          >
+            <h3>Users</h3>
+            <p>
+              Quas dolorem maiores cumque temporibus repudiandae, et, quod
+              doloremque odit quae distinctio, veniam quia minus! Earum commodi
+              fugiat unde labore praesentium repellat laudantium, cupiditate
+              possimus quia nesciunt nemo at quis.
+            </p>
+          </section>
+        </div>
+      </div>
+    </main>
+    <!-- 10- Header with logo and search and icons (page-actions) -->
+    <header class="main-header">
+      <div class="container">
+        <div class="header-left">
+          <div class="logo">
+            <a href="/">
+              <img src="/imgs/logo.png" alt="" />
+            </a>
+            <span>Company Name</span>
+          </div>
+        </div>
+        <div class="header-center" role="search">
+          <form action="/submit" method="POST" novalidate>
+            <label for="search" class="sr-only">Search: </label>
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Write a search keyword"
+              autocomplete="off"
+            />
+            <button type="submit" aria-label="Search Submit Button">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path fill="currentColor" d="" />
+              </svg>
+            </button>
+          </form>
+        </div>
+        <div class="header-right">
+          <nav class="user-page-actions" aria-label="User Page Actions">
+            <ul>
+              <li><a href="/users/user-name">Account</a></li>
+              <li>
+                <a href="/users/user-name/cart">
+                  Cart
+                  <span class="cart-count">(0)</span>
+                </a>
+              </li>
+              <li><a href="users/user-name/dashboard">Dashboard</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
   </body>
 </html>
