@@ -252,5 +252,270 @@
         </nav>
       </aside>
     </main>
+    <!-- ============================================== -->
+    <!-- 8- Sidebar with Staff Testimonials (vital relationship) -->
+    <!-- 
+        Note when write Testimonial has two format for semantic testimonials:
+        - Testimonials without image:
+            blockquote>p.quote+footer>strong.author-name+span.author-job
+        - Testimonials with image:
+            figure>img+blockquote>p.quote+footer>strong.author-name+span.author-job
+    -->
+    <main>
+      <!-- Main Content -->
+      <aside class="sidebar" aria-label="Testimonials Sidebar">
+        <section class="staf-testimonials" aria-labelledby="testimonials">
+          <h3 id="testimonials">Staff Testimonials</h3>
+          <blockquote>
+            <p>Time Management is a secret</p>
+            <footer>
+              <strong>Ahmed Hassan</strong> -
+              <span>CEO</span>
+            </footer>
+          </blockquote>
+          <blockquote cite="https://muhammed-soliman-portfolio.vercel.app">
+            <p>Consistency and Development</p>
+            <footer>
+              <strong>Muhammed Soliman</strong> -
+              <span>CTO</span>
+            </footer>
+          </blockquote>
+          <blockquote>
+            <p>Commitment is a secret</p>
+            <footer>
+              <strong>Muhammed Sayed</strong> -
+              <span>CFO</span>
+            </footer>
+          </blockquote>
+        </section>
+      </aside>
+    </main>
+    <!-- ============================================== -->
+    <!-- 8- Sidebar with Client Testimonials (vital relationship) -->
+    <!-- note role="group" use for carousel-slides or button-groups or complex-dropdown-menu -->
+    <main>
+      <!-- Main Content -->
+      <aside class="sidebar" aria-label="Testimonials Sidebar">
+        <h3 id="testimonial-title">Client Testimonials</h3>
+        <div
+          class="testimonial-carousel-container"
+          aria-labelledby="testimonial-title"
+          aria-label="Testimonial Carousel"
+          aria-roledescription="Carousel"
+        >
+          <ul class="testimonial-carousel" aria-live="polite">
+            <li
+              aria-label="1 of 4"
+              aria-roledescription="Slide"
+              id="testimonial-slide-1"
+              aria-current="true"
+              role="group"
+            >
+              <figure>
+                <img src="/imgs/testimonial-1.png" alt="describe image here" />
+                <blockquote cite="https://domainnameOfAuthor.com">
+                  <p>Quote Of Author</p>
+                  <footer>
+                    <strong>Author Name</strong> -
+                    <span>Auhtor Job</span>
+                  </footer>
+                </blockquote>
+              </figure>
+            </li>
+            <li
+              aria-label="2 of 4"
+              id="testimonial-slide-2"
+              aria-roledescription="Slide"
+              role="group"
+              hidden
+            >
+              <figure>
+                <img src="/imgs/testimonial-2.png" alt="describe image here" />
+                <blockquote>
+                  <p>Quote of Author</p>
+                  <footer>
+                    <strong>Author Name</strong> -
+                    <span>Author Job</span>
+                  </footer>
+                </blockquote>
+              </figure>
+            </li>
+            <li
+              aria-label="3 of 4"
+              id="testimonial-slide-3"
+              aria-roledescription="Slide"
+              role="group"
+              hidden
+            >
+              <figure>
+                <img src="/imgs/testimonial-3.png" alt="describe image here" />
+                <blockquote>
+                  <p>Quote of Author</p>
+                  <footer>
+                    <strong>Author Name</strong> -
+                    <span>Author Job</span>
+                  </footer>
+                </blockquote>
+              </figure>
+            </li>
+            <li
+              aria-label="4 of 4"
+              id="testimonial-slide-4"
+              aria-roledescription="Slide"
+              role="group"
+              hidden
+            >
+              <figure>
+                <img src="/imgs/testimonial-4.png" alt="describe image here" />
+                <blockquote>
+                  <p>Quote of Author</p>
+                  <footer>
+                    <strong>Author Name</strong> -
+                    <span>Author Job</span>
+                  </footer>
+                </blockquote>
+              </figure>
+            </li>
+          </ul>
+          <div class="carousel-controls" aria-label="Carousel Controls">
+            <button type="button" aria-label="Previous Slide">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path fill="currentColor" d="" />
+              </svg>
+            </button>
+            <!-- if aria-selected=true means is button is focusable which means can not use tabindex=-1 -->
+            <div
+              class="tablist"
+              role="tablist"
+              aria-label="Testimonial Slides Pagination"
+            >
+              <button
+                aria-label="Goto Slide 1"
+                aria-controls="testimonial-slide-1"
+                role="tab"
+                aria-selected="true"
+                id="testimonial-btn-1"
+              >
+                1
+              </button>
+              <button
+                aria-label="Goto Slide 2"
+                role="tab"
+                aria-controls="testimonial-slide-2"
+                aria-selected="false"
+                tabindex="-1"
+                id="testimonial-btn-2"
+              >
+                2
+              </button>
+              <button
+                aria-label="Goto Slide 3"
+                role="tab"
+                aria-controls="testimonial-slide-3"
+                tabindex="-1"
+                aria-selected="false"
+                id="testimonial-btn-3"
+              >
+                3
+              </button>
+              <button
+                aria-label="Goto Slide 4"
+                role="tab"
+                aria-controls="testimonial-slide-4"
+                tabindex="-1"
+                aria-selected="false"
+                id="testimonial-btn-4"
+              >
+                4
+              </button>
+            </div>
+            <button type="button" aria-label="Next Slide">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path fill="currentColor" d="" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <!-- ============================================== -->
+    <!-- 9- Sidebar with Author Info (vital relationship) -->
+    <main>
+      <!-- Main Content -->
+      <aside class="sidebar" aria-label="Author Sidebar">
+        <section class="author-info" aria-labelledby="author-title">
+          <div class="author-img">
+            <img src="/imgs/author.png" alt="Auhtor Name" />
+          </div>
+          <h3 id="author-title">About Author</h3>
+          <p>Breif Summary about the author</p>
+          <div class="auhtor-links">
+            <a href="/users/author-name">View author profile</a>
+            <a href="mailto:author@domainname.com">Author email</a>
+          </div>
+        </section>
+      </aside>
+    </main>
+    <!-- ============================================== -->
+    <!-- 10- Sidebar with Three Column layouts -->
+    <!-- Must be heading title elements from h1 to h6 is ordering hierarchy and the below layout is semantic according below notes:
+        -- each separate container should follow order hierarchy correct which means main>article>h2 (correct) or div.container>(aside>h3)+(main>article>h2+p)+aside>h3 (correct)
+    -->
+    <div class="container three-columns-layout">
+      <aside class="sidebar" aria-label="Categories Sidebar">
+        <nav class="widget" aria-labelledby="categories-title">
+          <h3 id="categories-title">Categories Links</h3>
+          <ul>
+            <li><a href="/categories/product1">Product 1</a></li>
+            <li><a href="/categories/product2">Product 2</a></li>
+            <li><a href="/categories/product3">Product 3</a></li>
+            <li><a href="/categories/product4">Product 4</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <main>
+        <article>
+          <header>
+            <h2>Main Heading Title</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa
+              veritatis, blanditiis perferendis laborum quo incidunt corporis,
+              debitis sed ipsum eveniet iste, quam quos nostrum voluptas
+              obcaecati quibusdam vero vel autem.
+            </p>
+          </header>
+          <h3>Sub Main Heading Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+            inventore explicabo et modi minima. Dolor facilis provident facere
+            hic corporis. In, a suscipit quae consectetur aspernatur
+            perspiciatis libero deleniti repellat!
+          </p>
+        </article>
+      </main>
+      <aside class="sidebar" aria-label="Related Links Sidebar">
+        <nav class="related-links" aria-labelledby="links-title">
+          <h3 id="links-title">Related Links</h3>
+          <ul>
+            <li><a href="/quality">Quality Insurance</a></li>
+            <li><a href="/prices">Price List Standards</a></li>
+            <li><a href="/price-per-quality">Price per Quality</a></li>
+            <li><a href="/latest-products">Latest Update Products</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
   </body>
 </html>
