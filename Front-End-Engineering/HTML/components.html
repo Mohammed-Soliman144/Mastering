@@ -992,7 +992,7 @@
     -->
     <button
       type="button"
-      onclick="showToast('success message','Saved', 'success')"
+      onclick="showToast('success message', 'Saved', 'success')"
     >
       Trigger Success Toast
     </button>
@@ -1002,5 +1002,127 @@
     >
       Trigger Error Toast
     </button>
+    <!-- =========================================================== -->
+    <!-- 7- Offcanvas Component -->
+    <button
+      type="button"
+      id="offcanvas-trigger"
+      aria-controls="offcanvas-menu"
+      aria-haspopup="dialog"
+      class="btn btn--primary"
+      aria-label="Open Side Navigation Menu"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path fill="currentColor" d="" />
+      </svg>
+    </button>
+    <dialog
+      id="offcanvas-menu"
+      aria-labelledby="offcanvas-title"
+      class="offcanvas"
+    >
+      <div class="offcanvas__content">
+        <header class="offcanvas__header">
+          <h3 id="offcanvas-title">Offcanvas Title</h3>
+          <form action="/submit" method="dialog" novalidate>
+            <button
+              type="submit"
+              value="close-offcanvas"
+              aria-label="Close Navigation Menu"
+            >
+              &times;
+            </button>
+          </form>
+        </header>
+        <nav class="offcanvas__navigation">
+          <ul>
+            <li><a class="offcanvas__link" href="/">Home</a></li>
+            <li><a class="offcanvas__link" href="/about">About</a></li>
+            <li><a class="offcanvas__link" href="/services">Services</a></li>
+            <li><a class="offcanvas__link" href="/careers">Careers</a></li>
+          </ul>
+        </nav>
+        <footer class="offcanvas__footer">
+          <p class="offcanvas__text">
+            Current User: <strong>admin@microdata.com</strong>
+          </p>
+        </footer>
+      </div>
+    </dialog>
+    <!-- =========================================================== -->
+    <!-- 8- Breadcrumb Component -->
+    <nav class="breadcrumb" aria-label="Breadcrumb Navigation">
+      <ol class="breadcrumb__list">
+        <li class="breadcrumb__item">
+          <a href="/products" class="breadcrumb__link">Products</a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="/products/categories" class="breadcrumb__link"></a>Categories
+        </li>
+        <li class="breadcrumb__item">
+          <a href="/products/categories/electronics/" class="breadcrumb__link"
+            >Electronics</a
+          >
+        </li>
+        <li class="breadcrumb__item">
+          <a
+            href="/products/categories/electronics/laptops
+            class="breadcrumb__link"
+          >Laptops</a>
+        </li>
+        <li class="breadcrumb__item">
+          <a
+            href="/products/categories/electronics/laptops/lenovo"
+            class="breadcrumb__link"
+          >Lenovo</a>
+        </li>
+        <li class="breadcrumb__item">
+          <span
+            aria-current="page"
+            class="breadcrumb__link-active"
+          >Legend Lenovo</span>
+        </li>
+      </ol>
+    </nav>
+    <!-- =========================================================== -->
+    <!-- 9- Tablist Component -->
+    <div class="tablist__wrapper">
+        <div class="tablist__buttons" role="tablist" aria-label="Shopping Products Details">
+            <button type="button" role="tab" id="tab-btn-overview" aria-controls="panel-overview" aria-selected="true">
+                Products Overview
+            </button>
+            <button type="button" role="tab" id="tab-btn-specification" aria-controls="panel-specification" aria-selected="false" tabindex="-1">
+                Products Specifications
+            </button>
+            <button type="button" role="tab" id="tab-btn-reviews" aria-controls="panel-reviews" aria-selected="false" tabindex="-1">
+                Products Reviews
+            </button>
+            <button type="button" role="tab" id="tab-btn-issues" aria-controls="panel-issues" aria-selected="false" tabindex="-1">
+                Products Issues
+            </button>
+        </div>
+        <div class="tablist__panel" role="tabpanel" id="panel-overview" aria-labelledby="tab-btn-overview">
+            <h3>Products Overview</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, a! Beatae, sequi. Cum in deleniti suscipit reprehenderit sapiente veritatis dignissimos. Doloribus eos culpa nihil tempore, iusto veniam placeat facere rerum.</p>
+        </div>
+        <div class="tablist__panel" role="tabpanel" id="panel-specification" aria-labelledby="tab-btn-specification" hidden>
+            <h3>Products Specifications</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, a! Beatae, sequi. Cum in deleniti suscipit reprehenderit sapiente veritatis dignissimos. Doloribus eos culpa nihil tempore, iusto veniam placeat facere rerum.</p>
+        </div>
+        <div class="tablist__panel" role="tabpanel" id="panel-reviews" aria-labelledby="tab-btn-reviews" hidden>
+            <h3>Products Reviews</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, a! Beatae, sequi. Cum in deleniti suscipit reprehenderit sapiente veritatis dignissimos. Doloribus eos culpa nihil tempore, iusto veniam placeat facere rerum.</p>
+        </div>
+        <div class="tablist__panel" role="tabpanel" id="panel-issues" aria-labelledby="tab-btn-issues" hidden>
+            <h3>Products Issues</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, a! Beatae, sequi. Cum in deleniti suscipit reprehenderit sapiente veritatis dignissimos. Doloribus eos culpa nihil tempore, iusto veniam placeat facere rerum.</p>
+        </div>
+    </div>
   </body>
 </html>
