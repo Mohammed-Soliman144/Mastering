@@ -177,5 +177,830 @@
         </div>
       </form>
     </section>
+    <!-- =========================================================== -->
+    <!-- 2- Multi Step Form + Form with Products as checkbox Cards -->
+    <section class="msf">
+      <nav class="msf__pagination" aria-label="Form Pagination Progress">
+        <ol>
+          <li
+            class="msf__step"
+            data-step="1"
+            aria-current="step"
+            aria-label="Step 1 of 3"
+          >
+            <span class="msf__circle">1</span>
+            <span class="msf__label">Company Profile</span>
+          </li>
+          <li
+            class="msf__step"
+            data-step="2"
+            tabindex="-1"
+            aria-label="Step 2 of 3"
+          >
+            <span class="msf__circle">2</span>
+            <span class="msf__label">Registration Info - Signin</span>
+          </li>
+          <li
+            class="msf__step"
+            data-step="3"
+            tabindex="-1"
+            aria-label="Step 3 of 3"
+          >
+            <span class="msf__circle">3</span>
+            <span class="msf__label">Purchasing Cart</span>
+          </li>
+        </ol>
+      </nav>
+      <p
+        class="msf__status sr-only"
+        id="msf-status"
+        role="status"
+        aria-live="polite"
+      >
+        Step 1 of 3
+      </p>
+      <form action="/submit" method="POST" class="msf__form" novalidate>
+        <fieldset class="msf__form-step" data-step="1" aria-current="step">
+          <legend>Company Profile</legend>
+          <div class="msf_form-field">
+            <label for="compname">Company Name</label>
+            <input
+              type="text"
+              minlength="2"
+              maxlength="25"
+              id="compname"
+              name="compname"
+              placeholder="Microdata"
+              autocomplete="off"
+              aria-describedby="msf-compname-err"
+              required
+            />
+            <p id="msf-compname-err" class="msf__error" hidden>Invalid Name</p>
+          </div>
+          <div class="msf_form-field">
+            <label for="comp-count">Headcount Number</label>
+            <input
+              type="number"
+              min="10"
+              max="1000"
+              step="1"
+              id="comp-count"
+              name="comp-count"
+              autocomplete="off"
+              aria-describedby="msf-compcount-err"
+              required
+            />
+            <p id="msf-compcount-err" class="msf__error" hidden>
+              Invalid Number
+            </p>
+          </div>
+          <div class="msf_form-field">
+            <label for="complogo">Company Logo</label>
+            <input
+              type="file"
+              accept="image/png"
+              id="complogo"
+              name="complogo"
+              placeholder="Select any image from png type"
+              aria-describedby="msf-complogo-err"
+              required
+            />
+            <p id="msf-complogo-err" class="msf__error" hidden>Invalid Image</p>
+          </div>
+          <div class="msf_form-field">
+            <label for="compuser">Company Username</label>
+            <input
+              type="text"
+              minlength="6"
+              maxlength="15"
+              id="compuser"
+              name="compuser"
+              placeholder="microdata_com_11"
+              aria-describedby="msf-compuser-err"
+              required
+            />
+            <p id="msf-compuser-err" class="msf__error" hidden>
+              Invalid Username Name
+            </p>
+          </div>
+          <div class="msf_form-field">
+            <label for="comppass">Company Password</label>
+            <input
+              type="password"
+              minlength="8"
+              maxlength="15"
+              id="comppass"
+              name="comppass"
+              placeholder="contains 1 special characters and 2 digits and at least contains 8 characters"
+              aria-describedby="msf-comppass-err"
+              required
+            />
+            <p id="msf-comppass-err" class="msf__error" hidden>
+              Invalid Password
+            </p>
+          </div>
+          <div class="msf_form-field">
+            <label for="compdob">Company Start Date</label>
+            <input
+              type="datetime-local"
+              id="compdob"
+              name="compdob"
+              placeholder="Must be the difference between current date and start date five years at least"
+              aria-describedby="msf-compdob-err"
+              required
+            />
+            <p id="msf-compdob-err" class="msf__error" hidden>
+              Invalid Start Date
+            </p>
+          </div>
+          <div class="msf_form-field">
+            <input
+              type="checkbox"
+              name="terms"
+              id="terms"
+              value="agree-terms"
+              aria-describedby="msf-terms-err"
+              required
+            />
+            <label for="terms"
+              >I agree with <a href="/terms">Privacy Terms</a></label
+            >
+            <p id="msf-terms-err" class="msf__error" hidden>
+              Must be agree with privacy terms
+            </p>
+          </div>
+        </fieldset>
+        <fieldset class="msf__form-step" data-step="2" hidden>
+          <legend>Registration Info - Signin</legend>
+          <div class="msf_form-field">
+            <label for="signuser">Username</label>
+            <input
+              type="text"
+              id="signuser"
+              name="signuser"
+              placeholder="microdata"
+              aria-describedby="msf-signuser-err"
+              autocomplete="off"
+              required
+            />
+            <p id="msf-signuser-err" class="msf__error" hidden>
+              Invalid Username
+            </p>
+          </div>
+          <div class="msf_form-field">
+            <label for="signpass">Password</label>
+            <input
+              type="password"
+              id="signpass"
+              name="signpass"
+              aria-describedby="msf-signpass-err"
+              required
+            />
+            <p id="msf-signpass-err" class="msf__error" hidden>
+              Invalid Password
+            </p>
+          </div>
+          <div class="msf_form-field">
+            <input
+              type="checkbox"
+              name="rememberme"
+              id="rememberme"
+              value="remember-on"
+            />
+            <label for="rememberme">Remember Me</label>
+          </div>
+        </fieldset>
+        <fieldset
+          class="msf__form-step"
+          data-step="3"
+          hidden
+          aria-describedby="pcard-instructions"
+        >
+          <legend>Purchasing Cart</legend>
+          <dl
+            class="msf__summary"
+            id="msf-summary"
+            aria-live="polite"
+            aria-label="Summary"
+          ></dl>
+          <div class="msf__pcard__grid">
+            <div class="msf__form-field msf__form__pcard">
+              <input
+                type="checkbox"
+                id="lenovo-mouse"
+                name="lenovo-mouse"
+                value="lenovo-wireless-mouse"
+                aria-labelledby="lenove-mouse-title"
+                data-price="9.99"
+                data-qty="5"
+                aria-describedby="lenovo-mouse-desc"
+              />
+              <article class="msf__pcard__container">
+                <div class="pcard__image">
+                  <img src="/imgs/mouse.png" alt="Lenovo Wireless Mouse" />
+                </div>
+                <div class="pcard__content">
+                  <label for="lenovo-mouse" class="pcard__label">
+                    <span class="pcard__label__name sr-only"
+                      >Lenovo wireless Mouse</span
+                    >
+                    <span class="pcard__label__qty">5</span>
+                    <span class="pcard__label__price">$9.99</span>
+                  </label>
+                  <h3 id="lenove-mouse-title">Lenovo Wireless Mouse</h3>
+                  <p id="lenovo-mouse-desc">
+                    Describe The quality of Product here (in breif)
+                  </p>
+                </div>
+              </article>
+            </div>
+            <div class="msf__form-field msf__form__pcard">
+              <input
+                type="checkbox"
+                id="hp-mouse"
+                name="hp-mouse"
+                value="hp-wireless-mouse"
+                aria-labelledby="hp-mouse-title"
+                aria-describedby="hp-mouse-desc"
+                data-price="19.99"
+                data-qty="2"
+              />
+              <article class="msf__pcard__container">
+                <div class="pcard__image">
+                  <img src="/imgs/mouse1.png" alt="HP Wireless Mouse" />
+                </div>
+                <div class="pcard__content">
+                  <label for="hp-mouse" class="pcard__label">
+                    <span class="pcard__label__name sr-only"
+                      >HP wireless Mouse</span
+                    >
+                    <span class="pcard__label__qty">2</span>
+                    <span class="pcard__label__price">$19.99</span>
+                  </label>
+                  <h3 id="hp-mouse-title">HP Wireless Mouse</h3>
+                  <p id="hp-mouse-desc">
+                    Describe The quality of Product here (in breif)
+                  </p>
+                </div>
+              </article>
+            </div>
+            <div class="msf__form-field msf__form__pcard">
+              <input
+                type="checkbox"
+                id="dell-mouse"
+                name="dell-mouse"
+                value="dell-wireless-mouse"
+                aria-labelledby="dell-mouse-title"
+                aria-describedby="dell-mouse-desc"
+                data-price="15.9"
+                data-qty="4"
+              />
+              <article class="msf__pcard__container">
+                <div class="pcard__image">
+                  <img src="/imgs/mouse2.png" alt="DELL Wireless Mouse" />
+                </div>
+                <div class="pcard__content">
+                  <label for="dell-mouse" class="pcard__label">
+                    <span class="pcard__label__name sr-only"
+                      >DELL wireless Mouse</span
+                    >
+                    <span class="pcard__label__qty">4</span>
+                    <span class="pcard__label__price">$15.99</span>
+                  </label>
+                  <h3 id="dell-mouse-title">DEll Wireless Mouse</h3>
+                  <p id="dell-mouse-desc">
+                    Describe The quality of Product here (in breif)
+                  </p>
+                </div>
+              </article>
+            </div>
+            <div class="msf__form-field msf__form__pcard">
+              <input
+                type="checkbox"
+                id="microsoft-mouse"
+                name="microsoft-mouse"
+                value="microsoft-wireless-mouse"
+                aria-labelledby="microsoft-mouse-title"
+                aria-describedby="microsoft-mouse-desc"
+                data-price="12.99"
+                data-qty="4"
+              />
+              <article class="msf__pcard__container">
+                <div class="pcard__image">
+                  <img src="/imgs/mouse4.png" alt="Microsoft Wireless Mouse" />
+                </div>
+                <div class="pcard__content">
+                  <label for="microsoft-mouse" class="pcard__label">
+                    <span class="pcard__label__name sr-only"
+                      >Microsoft wireless Mouse</span
+                    >
+                    <span class="pcard__label__qty">4</span>
+                    <span class="pcard__label__price">$12.99</span>
+                  </label>
+                  <h3 id="microsoft-mouse-title">Microsoft Wireless Mouse</h3>
+                  <p id="microsoft-mouse-desc">
+                    Describe The quality of Product here (in breif)
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="msf__status-pcard" id="pcard-instructions">
+            <p class="pcard__error" hidden>
+              Must be select one element at least
+            </p>
+            <p class="pcard__success" hidden>
+              Your are select 3 Products - Sub Total = $30
+            </p>
+          </div>
+        </fieldset>
+        <div class="msf__form-actions">
+          <button
+            type="button"
+            id="msf-back-btn"
+            class="btn msf__btn--info"
+            aria-label="Back Step"
+            hidden
+          >
+            Back
+          </button>
+          <button
+            type="button"
+            id="msf-next-btn"
+            class="btn msf__btn--primary"
+            aria-label="Next Step"
+          >
+            Continue
+          </button>
+          <button
+            type="submit"
+            id="msf-submit-btn"
+            class="btn msf__btn--primary"
+            aria-label="Submit Button"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+    <!-- =========================================================== -->
+    <!-- 3- Accordion Component -->
+    <div class="accordion__wrapper" id="accordion">
+      <div class="accordion__item">
+        <h3 class="accordion__heading">
+          <button
+            class="btn accordion__btn"
+            id="accordion-btn-1"
+            type="button"
+            aria-controls="accordion-panel-1"
+            aria-expanded="true"
+          >
+            According Heading Item #1
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path fill="none" stroke="currentColor" d="" />
+            </svg>
+          </button>
+        </h3>
+        <div
+          class="accordion__content"
+          id="accordion-panel-1"
+          aria-labelledby="accordion-btn-1"
+          role="region"
+        >
+          <p class="accordion__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eius.
+            Explicabo, ipsum? Sit a quae dolorem officia, tenetur, eos
+            repudiandae, sapiente maxime nostrum perferendis sequi? Distinctio
+            sit error vitae ducimus!
+          </p>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <h3 class="accordion__heading">
+          <button
+            class="btn accordion__btn"
+            id="accordion-btn-2"
+            type="button"
+            aria-controls="accordion-panel-2"
+            aria-expanded="false"
+          >
+            According Heading Item #2
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path fill="none" stroke="currentColor" d="" />
+            </svg>
+          </button>
+        </h3>
+        <div
+          class="accordion__content"
+          id="accordion-panel-2"
+          aria-labelledby="accordion-btn-2"
+          role="region"
+          hidden
+        >
+          <p class="accordion__text">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+            totam! Autem officia blanditiis impedit. Quaerat officiis pariatur
+            fugiat ut? Pariatur alias sapiente ipsa corporis fugit dicta
+            praesentium nulla eos libero.
+          </p>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <h3 class="accordion__heading">
+          <button
+            class="btn accordion__btn"
+            id="accordion-btn-3"
+            type="button"
+            aria-controls="accordion-panel-3"
+            aria-expanded="false"
+          >
+            According Heading Item #3
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path fill="none" stroke="currentColor" d="" />
+            </svg>
+          </button>
+        </h3>
+        <div
+          class="accordion__content"
+          id="accordion-panel-3"
+          aria-labelledby="accordion-btn-3"
+          role="region"
+          hidden
+        >
+          <p class="accordion__text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum
+            omnis quam quasi blanditiis neque consequuntur ipsa facilis tempore,
+            obcaecati maxime fuga id doloremque beatae? Ducimus, dolorum.
+            Perspiciatis, explicabo. Impedit, dignissimos.
+          </p>
+        </div>
+      </div>
+      <div class="accordion__item">
+        <h3 class="accordion__heading">
+          <button
+            class="btn accordion__btn"
+            id="accordion-btn-4"
+            type="button"
+            aria-controls="accordion-panel-4"
+            aria-expanded="false"
+          >
+            According Heading Item #4
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path fill="none" stroke="currentColor" d="" />
+            </svg>
+          </button>
+        </h3>
+        <div
+          class="accordion__content"
+          id="accordion-panel-4"
+          aria-labelledby="accordion-btn-4"
+          role="region"
+          hidden
+        >
+          <p class="accordion__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+            sequi labore quisquam amet ipsam repellendus velit earum, dolorem
+            fugit doloremque quos odit, alias perferendis, facilis sapiente
+            saepe eaque temporibus nulla.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- =========================================================== -->
+    <!-- 4- Modal Component -->
+    <!-- Note when wrap form[method=dialog] inside dialog element so when submit form data to server the browser handle all below operation automatically: 
+        1- Browser will stop page reloading
+        2- close the dialog (modal) element by default
+        3- get returnValue of dialog and save it by default
+        button[type=submit][value=delete]
+        dialog[id=modal]>form[method=dialog]
+        const modal = document.getElementById('modal');
+        modal.addEventListener('close', () => {
+            // this refer to window (undefined) which this inside arrow function () => {}
+            const btnValue = modal.returnValue;
+            if(btnValue === "delete") 
+                console.log("you are deleted the product already!")
+            else
+                console.log("you are not deleted the product")
+        })
+
+        -- note for this if form[method=POST] or form[method=GET] when click submit button => the browser send all form data to server and wait to get response then reload the page (if you do not use event.preventDefault())
+        -- note but if dialog>form[method=dialog] in this case the browser will not send form data to server and will stop page reload
+    -->
+    <button class="btn btn--primary" id="modal-trigger" type="button">
+      Delete Product
+    </button>
+    <dialog
+      class="modal"
+      id="modal"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <form
+        action="/submit"
+        method="dialog"
+        class="modal__form"
+        id="modal-form"
+        novalidate
+      >
+        <h3 id="modal-title">Modal Title</h3>
+        <p id="modal-desc">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur
+          repudiandae numquam iusto, quidem inventore cum suscipit similique
+          dolor libero voluptates quod debitis quam animi, accusamus illum atque
+          nulla officiis voluptatem.
+        </p>
+        <div class="form__actions">
+          <button
+            type="submit"
+            value="cancel"
+            id="modal-cancel"
+            class="btn btn--info"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            value="delete"
+            id="modal-delete"
+            class="btn btn--primary"
+          >
+            Delete
+          </button>
+        </div>
+        <button
+          type="submit"
+          value="close"
+          id="modal-close"
+          class="btn btn--primary"
+        >
+          &times;
+        </button>
+      </form>
+    </dialog>
+    <!-- =========================================================== -->
+    <!-- 5- Testimonials Carousel Component -->
+    <!-- For Semantic Rules and standards can not use role=tabpanel with ul>li but can use with section but can use role=group with ul>li -->
+    <!--
+        for Carousel there two pattern for semantic:
+            A- section>section or div>div with role=tabpanel and connect with div[role=tablist] (best for semantic)
+            B- ul>li with role=group and can not with div[role=tablist]  (also semantic but not the best)
+     -->
+    <div
+      class="carousel__wrapper"
+      aria-roledescription="carousel"
+      aria-labelledby="carousel-title"
+    >
+      <h3 id="carousel-title">Client Testimonials</h3>
+      <section class="carousel__slider" aria-live="polite">
+        <section
+          aria-label="1 of 4"
+          aria-roledescription="slide"
+          id="carousel-panel-1"
+          role="tabpanel"
+          class="carousel__slide"
+        >
+          <figure class="carousel__content">
+            <img
+              src="/imgs/testimonials-1.png"
+              alt="describe image here"
+              class="carousel__image"
+            />
+            <blockquote
+              class="carousel__quote-wrapper"
+              cite="https://domainnameOfAuthor.com"
+            >
+              <p class="carousel__quote">Quote of Author</p>
+              <footer class="carousel__quote-footer">
+                <strong class="carousel__quote-author">Author name</strong> -
+                <span class="carousel__quote-job">Author job</span>
+              </footer>
+            </blockquote>
+          </figure>
+        </section>
+        <section
+          aria-label="2 of 4"
+          aria-roledescription="slide"
+          id="carousel-panel-2"
+          role="tabpanel"
+          class="carousel__slide"
+          hidden
+        >
+          <figure class="carousel__content">
+            <img
+              src="/imgs/testimonials-2.png"
+              alt="describe image here"
+              class="carousel__image"
+            />
+            <blockquote
+              class="carousel__quote-wrapper"
+              cite="https://domainnameOfAuthor.com"
+            >
+              <p class="carousel__quote">Quote of Author</p>
+              <footer class="carousel__quote-footer">
+                <strong class="carousel__quote-author">Author name</strong> -
+                <span class="carousel__quote-job">Author job</span>
+              </footer>
+            </blockquote>
+          </figure>
+        </section>
+        <section
+          aria-label="3 of 4"
+          aria-roledescription="slide"
+          id="carousel-panel-3"
+          role="tabpanel"
+          class="carousel__slide"
+          hidden
+        >
+          <figure class="carousel__content">
+            <img
+              src="/imgs/testimonials-3.png"
+              alt="describe image here"
+              class="carousel__image"
+            />
+            <blockquote
+              class="carousel__quote-wrapper"
+              cite="https://domainnameOfAuthor.com"
+            >
+              <p class="carousel__quote">Quote of Author</p>
+              <footer class="carousel__quote-footer">
+                <strong class="carousel__quote-author">Author name</strong> -
+                <span class="carousel__quote-job">Author job</span>
+              </footer>
+            </blockquote>
+          </figure>
+        </section>
+        <section
+          aria-label="4 of 4"
+          aria-roledescription="slide"
+          id="carousel-panel-4"
+          role="tabpanel"
+          class="carousel__slide"
+          hidden
+        >
+          <figure class="carousel__content">
+            <img
+              src="/imgs/testimonials-4.png"
+              alt="describe image here"
+              class="carousel__image"
+            />
+            <blockquote
+              class="carousel__quote-wrapper"
+              cite="https://domainnameOfAuthor.com"
+            >
+              <p class="carousel__quote">Quote of Author</p>
+              <footer class="carousel__quote-footer">
+                <strong class="carousel__quote-author">Author name</strong> -
+                <span class="carousel__quote-job">Author job</span>
+              </footer>
+            </blockquote>
+          </figure>
+        </section>
+      </section>
+      <div class="carousel__controls" aria-label="Carousel Controls">
+        <button type="button" aria-label="Previous Slide">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path fill="currentColor" d="" />
+          </svg>
+        </button>
+        <div
+          class="carousel__tablist"
+          role="tablist"
+          aria-label="Carousel Tablist"
+        >
+          <button
+            type="button"
+            aria-label="Goto Slide 1"
+            role="tab"
+            aria-controls="carousel-panel-1"
+            id="carousel-btn-1"
+            aria-selected="true"
+          >
+            1
+          </button>
+          <button
+            type="button"
+            aria-label="Goto Slide 2"
+            role="tab"
+            aria-controls="carousel-panel-2"
+            id="carousel-btn-2"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            2
+          </button>
+          <button
+            type="button"
+            aria-label="Goto Slide 3"
+            role="tab"
+            aria-controls="carousel-panel-3"
+            id="carousel-btn-3"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            3
+          </button>
+          <button
+            type="button"
+            aria-label="Goto Slide 4"
+            role="tab"
+            aria-controls="carousel-panel-4"
+            id="carousel-btn-4"
+            aria-selected="false"
+            tabindex="-1"
+          >
+            4
+          </button>
+        </div>
+        <button type="button" aria-label="Next Slide">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path fill="currentColor" d="" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- =========================================================== -->
+    <!-- 6- Toast Component -->
+    <div
+      class="toast"
+      id="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      hidden
+    ></div>
+    <!-- 
+        function showToast(message, title, type) {
+            const toast = document.getElementById('toast')
+            // remove all elements wrapped inside toast
+            toast.innerHTML = ""
+            if(type === 'success') {
+                toast.setAttribute('role', 'status')
+                toast.setAttribute('aria-live', 'polite')
+            } else {
+                toast.setAttribute('role', 'alert')
+                toast.setAttribute('aria-live', 'assertive')
+            }
+            const toastTitle = document.createElement('h3')
+            toastTitle.innerText = title
+            const toastMsg = document.createElement('p')
+            toastMsg.innerText = message
+            toast.appendChild(toastTitle)
+            toast.appendChild(toastMsg)
+            toast.removeAttribute('hidden')
+            window.setTimeout(()=> {
+                // value of hidden attribute is empty because hidden is boolean attribute when set with empty meaning make element it hidden when remove make it visible
+                toast.setAttribute('hidden', '')
+            }, 5000)
+        }
+    -->
+    <button
+      type="button"
+      onclick="showToast('success message','Saved', 'success')"
+    >
+      Trigger Success Toast
+    </button>
+    <button
+      type="button"
+      onclick="showToast('error message', 'Saved', 'error')"
+    >
+      Trigger Error Toast
+    </button>
   </body>
 </html>

@@ -292,93 +292,124 @@
     </main>
     <!-- ============================================== -->
     <!-- 8- Sidebar with Client Testimonials (vital relationship) -->
-    <!-- note role="group" use for carousel-slides or button-groups or complex-dropdown-menu -->
+    <!-- Can use ul>li as carousel slides with role=group without -->
     <main>
       <!-- Main Content -->
       <aside class="sidebar" aria-label="Testimonials Sidebar">
         <h3 id="testimonial-title">Client Testimonials</h3>
         <div
-          class="testimonial-carousel-container"
-          aria-labelledby="testimonial-title"
+          class="carousel__wrapper"
           aria-label="Testimonial Carousel"
-          aria-roledescription="Carousel"
+          aria-labelledby="testimonial-title"
+          aria-roledescription="carousel"
         >
-          <ul class="testimonial-carousel" aria-live="polite">
+          <ul class="carousel__slider" aria-live="polite">
             <li
               aria-label="1 of 4"
-              aria-roledescription="Slide"
-              id="testimonial-slide-1"
-              aria-current="true"
+              aria-roledescription="slide"
               role="group"
+              id="carousel-slide-1"
+              class="carousel__slide"
             >
-              <figure>
-                <img src="/imgs/testimonial-1.png" alt="describe image here" />
-                <blockquote cite="https://domainnameOfAuthor.com">
-                  <p>Quote Of Author</p>
-                  <footer>
-                    <strong>Author Name</strong> -
-                    <span>Auhtor Job</span>
+              <figure class="carousel__figure">
+                <img
+                  class="carousel__image"
+                  src="/imgs/testimonial-1.png"
+                  alt="describe image here"
+                />
+                <blockquote
+                  cite="https://domainnameOfAuthor.com"
+                  class="carousel__quote-wrapper"
+                >
+                  <p class="carousel__quote">Quote of Author</p>
+                  <footer class="carousel__foot">
+                    <strong class="carousel__quote-author">Author name</strong>
+                    - <span class="carousel__quote-job">Author job</span>
                   </footer>
                 </blockquote>
               </figure>
             </li>
             <li
               aria-label="2 of 4"
-              id="testimonial-slide-2"
-              aria-roledescription="Slide"
+              aria-roledescription="slide"
               role="group"
+              id="carousel-slide-2"
+              class="carousel__slide"
               hidden
             >
-              <figure>
-                <img src="/imgs/testimonial-2.png" alt="describe image here" />
-                <blockquote>
-                  <p>Quote of Author</p>
-                  <footer>
-                    <strong>Author Name</strong> -
-                    <span>Author Job</span>
+              <figure class="carousel__figure">
+                <img
+                  class="carousel__image"
+                  src="/imgs/testimonial-2.png"
+                  alt="describe image here"
+                />
+                <blockquote
+                  cite="https://domainnameOfAuthor.com"
+                  class="carousel__quote-wrapper"
+                >
+                  <p class="carousel__quote">Quote of Author</p>
+                  <footer class="carousel__foot">
+                    <strong class="carousel__quote-author">Author name</strong>
+                    - <span class="carousel__quote-job">Author job</span>
                   </footer>
                 </blockquote>
               </figure>
             </li>
             <li
               aria-label="3 of 4"
-              id="testimonial-slide-3"
-              aria-roledescription="Slide"
+              aria-roledescription="slide"
               role="group"
+              id="carousel-slide-3"
+              class="carousel__slide"
               hidden
             >
-              <figure>
-                <img src="/imgs/testimonial-3.png" alt="describe image here" />
-                <blockquote>
-                  <p>Quote of Author</p>
-                  <footer>
-                    <strong>Author Name</strong> -
-                    <span>Author Job</span>
+              <figure class="carousel__figure">
+                <img
+                  class="carousel__image"
+                  src="/imgs/testimonial-3.png"
+                  alt="describe image here"
+                />
+                <blockquote
+                  cite="https://domainnameOfAuthor.com"
+                  class="carousel__quote-wrapper"
+                >
+                  <p class="carousel__quote">Quote of Author</p>
+                  <footer class="carousel__foot">
+                    <strong class="carousel__quote-author">Author name</strong>
+                    - <span class="carousel__quote-job">Author job</span>
                   </footer>
                 </blockquote>
               </figure>
             </li>
             <li
               aria-label="4 of 4"
-              id="testimonial-slide-4"
-              aria-roledescription="Slide"
+              aria-roledescription="slide"
               role="group"
+              id="carousel-slide-4"
+              class="carousel__slide"
               hidden
             >
-              <figure>
-                <img src="/imgs/testimonial-4.png" alt="describe image here" />
-                <blockquote>
-                  <p>Quote of Author</p>
-                  <footer>
-                    <strong>Author Name</strong> -
-                    <span>Author Job</span>
+              <figure class="carousel__figure">
+                <img
+                  class="carousel__image"
+                  src="/imgs/testimonial-4.png"
+                  alt="describe image here"
+                />
+                <blockquote
+                  cite="https://domainnameOfAuthor.com"
+                  class="carousel__quote-wrapper"
+                >
+                  <p class="carousel__quote">Quote of Author</p>
+                  <footer class="carousel__foot">
+                    <strong class="carousel__quote-author">Author name</strong>
+                    - <span class="carousel__quote-job">Author job</span>
                   </footer>
                 </blockquote>
               </figure>
             </li>
           </ul>
-          <div class="carousel-controls" aria-label="Carousel Controls">
-            <button type="button" aria-label="Previous Slide">
+          <div class="carousel__controls" aria-label="Carousel Controls">
+            <button type="button" aria-label="Previous Slide`">
               <svg
                 width="16"
                 height="16"
@@ -389,57 +420,56 @@
                 <path fill="currentColor" d="" />
               </svg>
             </button>
-            <!-- if aria-selected=true means is button is focusable which means can not use tabindex=-1 -->
             <div
-              class="tablist"
+              class="carousel__tablist"
               role="tablist"
-              aria-label="Testimonial Slides Pagination"
+              aria-label="Carousel Tablist"
             >
               <button
                 type="button"
                 aria-label="Goto Slide 1"
-                aria-controls="testimonial-slide-1"
-                role="tab"
                 aria-selected="true"
-                id="testimonial-btn-1"
+                aria-controls="carousel-panel-1"
+                role="tab"
+                id="carousel-btn-1"
               >
                 1
               </button>
               <button
                 type="button"
                 aria-label="Goto Slide 2"
-                role="tab"
-                aria-controls="testimonial-slide-2"
                 aria-selected="false"
+                aria-controls="carousel-panel-2"
+                role="tab"
+                id="carousel-btn-2"
                 tabindex="-1"
-                id="testimonial-btn-2"
               >
                 2
               </button>
               <button
                 type="button"
                 aria-label="Goto Slide 3"
-                role="tab"
-                aria-controls="testimonial-slide-3"
-                tabindex="-1"
                 aria-selected="false"
-                id="testimonial-btn-3"
+                aria-controls="carousel-panel-3"
+                role="tab"
+                id="carousel-btn-3"
+                tabindex="-1"
               >
                 3
               </button>
               <button
                 type="button"
                 aria-label="Goto Slide 4"
-                role="tab"
-                aria-controls="testimonial-slide-4"
-                tabindex="-1"
                 aria-selected="false"
-                id="testimonial-btn-4"
+                aria-controls="carousel-panel-4"
+                role="tab"
+                id="carousel-btn-4"
+                tabindex="-1"
               >
-                4
+                1
               </button>
             </div>
-            <button type="button" aria-label="Next Slide">
+            <button type="button" aria-label="Next Slide`">
               <svg
                 width="16"
                 height="16"
