@@ -1,0 +1,62 @@
+/* =========== Reset ================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+/* =========== Reset ================== */
+
+/* =========== Static Header ========== */
+.header {
+  background-color: #333;
+  color: #fff;
+}
+
+.container {
+  padding-inline: 1rem;
+  padding-block: 2rem;
+  margin-inline: auto;
+  max-width: none;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__logo {
+  width: 100%;
+}
+
+.header__logo .header__link {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+}
+
+.header__image {
+  flex: 1;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.header__company-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
