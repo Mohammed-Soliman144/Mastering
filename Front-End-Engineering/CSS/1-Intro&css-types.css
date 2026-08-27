@@ -1,0 +1,59 @@
+/* Lesson 1 => Types of CSS and Intro */
+/* External CSS (External Stylesheet) */
+
+/* A- styles/globals.css => External CSS File */
+body {
+  color: #fff;
+}
+
+/* B- index.html 
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <link rel="stylesheet" href="/styles/globals.css" />
+        </head>
+        <body></body>
+    </html>
+*/
+
+/* 2- internal CSS */
+
+/* index.html 
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <style>
+                body {
+                    color: white;
+                }
+            </style>
+        </head>
+        <body></body>
+    </html>
+*/
+
+/* 3- Inline CSS (Inline stylesheet) */
+/* index.html 
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+        </head>
+        <body>
+            <p style="color:white">Lorem</p>
+        </body>
+    </html> 
+*/
+
+/* Anatomy of CSS Syntax */
+
+/* 
+    selector {
+        property-name1: property-value1; => this line called CSS Declaration
+        property-name2: property-value2;
+        property-name3: property-value3;
+    }
+
+    -- all css Declarations between curly braces which applied to specifiy selector 
+        it called CSS Ruleset
+
+*/
