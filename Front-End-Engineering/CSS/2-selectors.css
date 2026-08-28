@@ -1,0 +1,38 @@
+/* 2- All Types of selectors and Specificity */
+
+/* 
+    A- All Types Of CSS Selectors: 
+
+    1- ID Selector
+        #idname { 
+            color: #fff;
+        }
+    2- Element Selector
+        div {
+            color: #fff;
+        }
+    3- Class Selector
+        .classname {
+            color: #fff;
+        }
+    4- Grouping selector
+        div, h2, .special, .classname {
+            color: #fff;
+        }
+    5- Adjacent Sibling Selector +
+        div + p {
+            color: #fff;
+        }
+        -- Means select paragraph is followed directly after div as sibling for it
+    6- Decendant Selector (space)  div p
+        div p {
+            color: #fff;
+        }
+        means select paragraph as child for div with any deep nesting level inside div
+    7- Direct Child Selector div > p
+        div > p {
+            color: #fff;
+        }
+        select every p as direct child for div
+    
+*/
