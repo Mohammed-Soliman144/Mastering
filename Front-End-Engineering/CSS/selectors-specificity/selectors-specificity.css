@@ -1,0 +1,293 @@
+/* Specificity Rule for CSS */
+/* 
+    1- Inline Styles:  1 0 0 0
+    2- ID Selector: 0 1 0 0
+    3- Class Selector, Attribute Selectors, User Action States Selectors (:link, :active, :visited, :hover, :focus, :focus-within, :focus-visible, :target), pseudo Elements (::before, ::after, ::selection, ::placeholder, ::first-letter, ::first-line): 0 0 1 0
+    4- Element Selector: 0 0 0 1
+
+    example: div p  => specificty => 0 0 0 2 (2 element selectors)
+*/
+
+/* All CSS Selectors */
+/* 1- Element Selector */
+/* Select all div elements in the page */
+div {
+  background-color: #efefef;
+}
+/* 2- Id Selector */
+/* select only single element with id="testimonials" */
+#testimonials {
+  color: #333;
+}
+
+/* 3- Class Selector - specificity => 0 0  */
+/* select all elements with class .header in the page */
+.header {
+  color: #ccc;
+}
+
+/* 4- Attributes Selectors */
+/* A- select all inputs with type text in the page */
+input[type="text"] {
+  appearance: unset;
+}
+
+/* B- Starts With - ^="value" */
+/* Select all links starts with (^="value") https:// */
+a[href^="https://"] {
+  text-decoration: none;
+}
+
+/* C- Ends with - $="value" */
+/* Select all links ends with ($="value") com */
+a[href$="com"] {
+  text-decoration: none;
+}
+
+/* D- Contains substring *="value" */
+/* Select all div elements with class attribute contains (*="value") ea 
+    div.header => True
+    div.heat  => true
+    div.footer.heat => true  
+*/
+div[class*="ea"] {
+  color: #000;
+}
+
+/* E- contains whole word ~="value" */
+/* Select all div elements with class attribute contains whole word  (~="value") ea 
+    div.header => false
+    div.heat  => false
+    div.footer.heat => false
+    div.footer.ea => true   class="footer ea"
+    div.header.ea => true   class="header ea"  
+*/
+div[class~="ea"] {
+  color: #0f0;
+}
+
+/* F- Starts with or starts with followed by hyphen |="value" */
+/* Select all div elements with class attribute starts with header or header- |="value" 
+
+    div.header  => true
+    div.header-main => true
+    div.header-secondary => true
+    div.sub-header => false
+
+*/
+div[class|="header"] {
+  font-size: 1rem;
+}
+
+/* 5- User Action States Selectors */
+/* A- :hover => when mouse hover on button or link or element */
+/* Select all links in the page and when mouse hover on it make link underline */
+a:hover {
+  text-decoration: underline;
+}
+
+/* B- :active => longest pressed on element by mouse without leave pressing */
+/* Select all links and change coloring when pressing on link */
+a:active {
+  color: #00f;
+}
+
+/* C- :focus => when focus on element means when clicking on element or select element which means make it active or ready to write inside input for example */
+/* select all inputs When focus on input make it bordered colored solid red */
+input:focus {
+  border: 1px solid #ff4436;
+}
+
+/* D- :focus-within => when select any child inside element itself (its parent) */
+/* input>span+span => in this case if click on any span inside input or selected change input border colored to solid red */
+input:focus-within {
+  border: 1px solid #ff4436;
+}
+
+/* E- :focus-visible => when select element but not by click using mouse but when select element by using keyboard in this case called focus-visible */
+input:focus-visible {
+  border: 1px solid #ff4436;
+}
+
+/* F- :link => select all links before visited on the page */
+:link {
+  color: #c3c3c3;
+}
+
+/* G- :visited => select all links after visited on the page */
+.visit:visited {
+  color: purple;
+}
+
+/* H- target => select target element that matching https://domainname.com/#idname   id="idname" */
+
+[href="#about"]:target {
+  background-color: #333;
+}
+
+/* 6- Pseudo Elements with (::) */
+/* A- ::selection => when select all elements on the page or when select all elements inside element */
+::selection {
+  background-color: #efefef;
+}
+
+/* B- ::before */
+/* ::before create pseudo element before div */
+div::before {
+  content: "@";
+  position: absolute;
+  inset: 0;
+}
+
+/* C- ::after */
+/* ::after create pseudo element after div */
+div::before {
+  content: "$";
+  position: absolute;
+  inset: 0;
+}
+
+/* D- ::first-letter */
+/* ::first-letter control of first-letter inside paragraph only */
+p::first-letter {
+  color: #ff4436;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* E- ::first-line */
+/* ::first-line control of first-letter inside paragraph only */
+p::first-letter {
+  color: #ff4436;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* F- ::placeholder */
+/* ::placeholder select all input with type text and make it placeholder as below styles */
+input[type="text"]::placeholder {
+  color: #eee;
+  background-color: #333;
+  font-size: 0.75rem;
+}
+
+/* 7- Child Position Classes  :nth => all child position classes specificity => 0 0 1 1 */
+/* syntax of all child position classes 
+
+    -- selector-not-parent-of-selector:first-child or
+    -- selector-not-parent-of-selector:last-child or
+    -- selector-not-parent-of-selector:first-of-type or
+    -- selector-not-parent-of-selector:last-of-type or
+    -- selector-not-parent-of-selector:nth-child() or (starts count from left to right as normal)
+    -- selector-not-parent-of-selector:nth-last-child() or (starts count from right to left as backwarding count) 
+    -- selector-not-parent-of-selector:nth-of-type() or (starts count from left to right as normal)
+    -- selector-not-parent-of-selector:nth-last-of-type() or (starts count from right to left as backwarding count) 
+
+    -- and selector can be class or element or attribute or id
+*/
+
+/* A- :first-child => must exist conditional of first child of parent element and with the same of specific selector */
+/* select first child as paragraph element inside parent element but must be first child is p (paragraph element) */
+p:first-child {
+  color: purple;
+}
+
+/* B- :last-child => must exist conditional of last child of parent element and with the same of specific selector */
+/* select first child as paragraph element inside parent element but must be first child is p (paragraph element) */
+p:last-child {
+  color: purple;
+}
+
+/* C- :first-of-type => means not conditional be first child but must first element as child from the same specific element */
+p:first-of-type {
+  color: purple;
+}
+
+/* D- :last-of-type => means not conditional be first child but must last element as child from the same specific element */
+p:last-of-type {
+  color: purple;
+}
+
+/* E- :nth-child(n) => must exist condition of element as child of parent with the same position of n (and n starts from left to right - forward) and the element must match the same specific selector 
+
+    -- :nth-child(odd)  => 1, 3, 5, 7, etc...
+    -- :nth-child(even) => 2, 4, 6, 8, etc...
+    -- :nth-child(n+5)  => zero-index-base-rule so 0 + 5 = 5 and n increment by one => from 5th to last
+    -- :nth-child(-n+5) => from 1th to 5th element
+    -- :nth-child(2n+3) => zero-index-base so 2*0+3 = 3 then 2*1+3= 5 and so on => 3, 5, 7, 9 etc....
+    -- :nth-child(4n+8) => zero-index-base so 4*0+8 = 8 then 4*1+8 = 12 and so on => 8, 12, 16, 20, etc...
+    -- :nth-child(n+7):nth-child(-n+10) => 7th to last then from 1th to 10th => get common part (intersect part) so => from 7th to 10th => according syntax :nth-child(n+low):nth-child(-n+high) which high is greater than low
+    -- :nth-last-child(n) => starts count backwarding from right to left (from end to start)
+
+    -- :nth-of-type(n) => start counts from left to right
+    -- :nth-last-of-type(n) => start counts from right to left
+*/
+
+/* 8- Combinator Selectors */
+/* A- Descendent Selector (space selector) => div p => select all paragraph as children inside div in any deep nesting level inside it */
+
+div p {
+  color: tan;
+}
+
+/* B- Adjacent Sibling => div + p => select direct sibling paragraph that followed by div (so only select only first p after div at the same level on nesting) */
+
+div + p {
+  font-size: 1rem;
+}
+
+/* C- Direct Child => div > p => select all paragraphs as children inside div which has the same parent div */
+
+div > p {
+  color: teal;
+}
+
+/* D- General Sibling => div ~ p => select all paragraph as indirect sibling for div which means not must followed by div */
+
+div ~ p {
+  color: teal;
+}
+
+/* 9- Form States Selectors */
+
+/* A- :valid vs :invalid => state execute when input is valid or invalid */
+
+input:valid {
+  background-color: teal;
+}
+
+input:invalid {
+  background-color: teal;
+}
+
+/* B- :required vs :optional => state execute when input is optional or required */
+
+input[type="text"]:required {
+  color: rebeccapurple;
+}
+
+input[type="text"]:optional {
+  color: rebeccapurple;
+}
+
+/* C- :in-range vs :out-of-range => state execute for check if input[type=number] is inside range (within min and max) or out side range */
+
+input[type="number"]:in-range {
+  color: rebeccapurple;
+}
+
+input[type="number"]:out-of-range {
+  color: yellow;
+}
+
+/* D- :read-only vs :read-write => state execute when input is read-only or read-write */
+
+input:read-only {
+  color: red;
+}
+
+input:read-write {
+  color: yellow;
+}
+
+
