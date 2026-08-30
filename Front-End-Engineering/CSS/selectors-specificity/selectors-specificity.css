@@ -1,11 +1,66 @@
 /* Specificity Rule for CSS */
 /* 
-    1- Inline Styles:  1 0 0 0
-    2- ID Selector: 0 1 0 0
-    3- Class Selector, Attribute Selectors, User Action States Selectors (:link, :active, :visited, :hover, :focus, :focus-within, :focus-visible, :target), pseudo Elements (::before, ::after, ::selection, ::placeholder, ::first-letter, ::first-line): 0 0 1 0
-    4- Element Selector: 0 0 0 1
-
-    example: div p  => specificty => 0 0 0 2 (2 element selectors)
+    1- Inline Selector <p style="color:red;">lorem</p> => (1, 0, 0, 0)
+    2- Id Selector #container => (0, 1, 0, 0)
+    3- Element Selector and pseudo Elements with (::)
+        div  => (0, 0, 0, 1)
+        ::after, ::before, ::selection, ::first-line, ::first-letter, ::placeholder => (0, 0, 0, 1)
+    4- All Type of Class Selectors => (0, 0, 1, 0)
+        1- class selector .class-name => (0, 0, 1, 0)
+        2- All Attribute Selectors        => (0, 0, 1, 0)
+            input[type="text"],
+            a[href^="val"] starts with
+            a[href$="val"] ends with
+            a[href*="val"] contains substring without space
+            a[href~="val"] contains a whole word with space
+            a[href|="val"] starts with val or val- (val followed by hyphen -)
+        3- Pseudo Classes (:) and user action states selectors => (0, 0, 1, 0)
+            :hover => mouse hover on element
+            :focus => select element by mouse or keyboard tab (to stop on element)
+            :focus-within => select any child of element inside parent by mouse
+            :focus-visible => select any child of element inside parent by Keyboard
+            :active => longest press on element by mouse 
+            :link => any link before visited on webpage represents as <a>text</a>
+            :visited => any link after visited
+            :target => 
+            <section id="about"></section> + <a href="#about">About</a>
+                #about:target { color: red; }
+            <section class="about" id="about"></section> + <a href="#about">About</a>
+                .about:target { color: yellow; }
+        4- Child Positioning Selectors => (0, 0, 1, 0)
+            selector:first-child => first child of parent + type of element === selector 
+            :last-child => last child of parent + type of element === selector
+            :first-of-type => first type of element but not first in ordering in parent
+            :last-of-type => last type of element but not last in ordering in parent
+            :nth-child(n) => starts count from left to right (forward)
+            :nth-last-child(n) => starts count from right to left (backward)
+            :nth-of-type(n) => starts count from left to right (forward)
+            :nth-last-of-type => starts count from right to left (backward)
+            -- notes of :nth-child (always n starts from zero then increment by one in general)
+                :nth-child(odd)  => 1, 3, 5, 7, etc...
+                :nth-child(even) => 2, 4, 6, 8, etc...
+                :nth-child(n+4)  => from 4th element to last element
+                :nth-child(-n+7) => from 1th first element to 7th element
+                :nth-child(2n+6) => 2*0+6 = 6 2*1+6 = 8 so => 6, 8, 10, 12 etc...  
+                :nth-child(3n+3) => 3*0+3 = 3 3*1+3 = 6 so => 3, 6, 9, 12 etc...
+                :nth-child(n+4):nth-child(-n+10) => intersect part from 4th to last and from 1th to 10th => 4th to 10th (intersect part)
+        5- Form States Selectors => (0, 0, 1, 0)
+            -- :enabled vs :disabled
+            -- :required vs :optional
+            -- :in-range vs :out-of-range (for type number inputs)
+            -- :valid vs :invalid
+            -- :read-only vs :read-write
+            -- :checked (for type checkbox inputs)
+        6- Logical Selectors => compound selector specificity + get highest specificity of arguments (not compound or sum)
+            selector:where(arg1, arg2) => always ignore specificity (0, 0, 0, 0)
+            div.container:is(header, main, footer) = 
+                div.container => (0, 0, 1, 1)
+                header => (0, 0, 0, 1)
+                main => (0, 0, 0, 1)
+                footer => (0, 0, 0, 1) 
+                = (0, 0, 1, 1) + (0, 0, 0, 1) = (0, 0, 1, 2)
+            :has() => the same rule  
+            :not() => the same rule
 */
 
 /* All CSS Selectors */
@@ -290,4 +345,40 @@ input:read-write {
   color: yellow;
 }
 
+/* E- :disabled vs :enabled => check if input is enabled or disabled */
 
+input.email:disabled {
+  color: red;
+}
+
+input.email:enabled {
+  color: #0f0;
+}
+
+/* F- :checked => check if input is checked and change styles */
+input[type="checkbox"]:checked {
+  color: #0f8;
+}
+
+/* 10- Logical Selectors */
+
+/* A- :is() => check if selector is contains or includes others selectors with consider specificty */
+/* if div === div.container or div.wrapper => so apply below styles */
+div:is(.container, .wrapper) {
+  background-color: #333;
+}
+
+/* B- :where => check if selector is contains or includes others selectors without consider specificity */
+div:where(.container, .wrapper) {
+  background-color: #333;
+}
+
+/* C- :not => check if selector is not contains or not includes others selectors */
+div.header:not(nav ul, .logo img, form) {
+  color: #0f8;
+}
+
+/* D- :has => check if selector has contains inside it as child */
+div.container:has(header, main, footer) {
+  background-color: #efefef;
+}
