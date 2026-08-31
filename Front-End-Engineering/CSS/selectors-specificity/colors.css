@@ -1,0 +1,21 @@
+/* Colors
+    
+    -- Color names
+    -- Hexadecimal Colors
+        Red     => #FF0000  or #f00 shortcut
+        Green   => #00FF00  or #0f0 shortcut
+        Blue    => #0000FF  or #00f shortcut
+        White   => #FFFFFF  or #fff shortcut
+        Black   => #000000  or #000 shortcut
+    -- rgb() function
+        red   => rgb(255, 0, 0)
+        Green => rgb(0, 255, 0)
+        Blue  => rgb(0, 0, 255)
+        White => rgb(255, 255, 255)
+        Black => rgb(0, 0, 0)
+        
+*/
+
+body {
+  color: red;
+}
