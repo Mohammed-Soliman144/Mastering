@@ -1,21 +1,112 @@
-/* Colors
+/* All CSS Colors 
+
+    1- Color Names.
+    2- Hexadecimal Colors.
+    3- RGB Colors.
+    4- HSL Colors.
+    5- LAB Colors.
+    6- LCH Colors.
+    7- OKLCH Colors
+    8- OKLAB Colors.
+
+
+    1- Color Names 
+        - red | green | blue | transparent | currentColor => inherits from its parent etc..
+    2- Hexadecimal Colors
+        -- it depends on hexadecimal number system which contains digits 0-9 and letters A-F which 
+            A = 10 | B = 11 | C = 12 | D = 13 
+            E = 14 | F = 15
+        -- Syntax  hexa without alpha   => #RRGGBB
+        -- Shorthand hexa without alpha => #RGB
+            red   => #FF0000 or #F00
+            green => #00FF00 or #0F0
+            blue  => #0000FF or #00F
+            white => #FFFFFF or #FFF
+            black => #000000 or #000
+        -- Syntax  hexa with alpha   => #RRGGBBAA
+        -- Shorthand hexa with alpha => #RGBA
+            alpha channel from 00 => FF
+            which 00 is transparent and FF fully visible or solid
+
+            Half Red   => #ff000088  or #f008
+            Half Green => #00ff0088  or #0f08
+            Half Blue  => #0000ff88  or #00f8
+
+            -- decimal          hexadecimal
+            -- 0.20        =     33
+            -- 0.25        =     40
+            -- 0.40        =     66
+            -- 0.50        =     80
+            -- 0.75        =     BF
+            -- 1           =     FF
+    3- RGB Colors
+        -- RGB stands for Red Green Blue
+        -- Each Color represents 1 Byte (8 Bits) in decimal Number System 2 Exponential 8 (2**8) = 256 which means from 0 to 255
+            -- Red = rgb(255 0 0)  (note legacy syntax rgb(255, 0, 0) with separated comma
+            -- Green = rgb(0 255 0)
+            -- Blue = rgb(0 0 255)
+            -- Black = rgb(0 0 0)
+            -- White = rgb(255 255 255)
+        -- RGB with alpha channel which alpha from 0 to 1
+        -- rgba(0 0 0 / 0.5) (note rgba() is a legacy color function still browser supported but its legacy)
+            -- half Red   => rgb(255 0 0 / 0.5)
+            -- half Green => rgb( 0 255 0 / 0.5)      
     
-    -- Color names
-    -- Hexadecimal Colors
-        Red     => #FF0000  or #f00 shortcut
-        Green   => #00FF00  or #0f0 shortcut
-        Blue    => #0000FF  or #00f shortcut
-        White   => #FFFFFF  or #fff shortcut
-        Black   => #000000  or #000 shortcut
-    -- rgb() function
-        red   => rgb(255, 0, 0)
-        Green => rgb(0, 255, 0)
-        Blue  => rgb(0, 0, 255)
-        White => rgb(255, 255, 255)
-        Black => rgb(0, 0, 0)
-        
+    4- HSL Colors 
+        -- hsl() color function also as rgba() is a legacy function but it still used which all browser supported (compitability Support old code)
+        -- hsl stands for hue, saturation and lightness
+        -- h from 0 to 360 circle angle (cylinder degree)
+        -- s and l from 0 to 100%
+            -- red  => hsl(0 100% 50%) or hsl(360 100% 50%)
+            -- yellow => hsl(60 100% 50%)
+            -- green => hsl(120 100% 50%)
+            -- blue => hsl(240 100% 50%)
+
+        -- hsl with alpha channal also used hsl(0 0 0 / 0.5) and also alpha channel from 0 to 1 or (0 to 100%)
+
+        -- half Green => hsl(120 100% 50% / 0.5)
+        -- half Blue  => hsl(240 100% 50% / 0.5) 
+
+    5- OKLCH Colors as tailwindcss system colors supported FULL HD Colors
+        -- OKLCH stands for OK, Lightness, chroma (as intensity of color), hue (as hsl from 0 to 360 with different color values for red, green, blue)
+        -- oklch syntax => oklch(0 0 0 / alpha)
+        -- lightness from 0 To 100%
+        -- chroma from 0 to 0.4
+        -- hue from 0 to 360
 */
 
-body {
-  color: red;
-}
+/* CSS Color Functions - Blend or merge two colors or more */
+/* 
+    1- color-mix
+    2- linear-gradient
+    3- radial-gradient
+    4- conic-gradient
+
+
+    1- color-mix(in srgb or in <color-space like srgb>, color1 percent%, color2 complement-percent%)
+        -- srgb stands for standard red green blue
+        color-mix(in srgb, #f00 40%, #00f 60%)
+        -- all percentage of all colors equals 100% or less than 100% (the safe side effect) 
+
+    2- linear-gradient (as straight line colors mix)
+        linear-gradient( direction, color-1 stop-1, color-2 stop-2)
+
+        linear-gradient( to left | to right | to bottom | to top, color-1 stop-1, color-2 stop-2)
+
+        linear-gradient(to left, #ff4436 60%, #080 100%)
+
+    3- radial-gradient (as outward from center point colors mix)
+        radial-gradient(circle at center | circle | circle at top left | circle at top right | circle at bottom left | circle at bottom right, color-1, color-2)
+
+        radia-gradient(circle at bottom left, red, blue)
+
+    4- conic-gradient (as clockwise colors mix)
+        conic-gradient(from 0deg or from 360deg | from 90deg | from 180deg | from 270deg, color-1, color-2) 
+
+        from 0deg or from 360deg (top corner)
+        from 90deg (right corner)
+        from 180deg (bottom corner)
+        from 270deg (left corner)
+
+        conic-gradient(from 270deg, red, blue)
+*/
