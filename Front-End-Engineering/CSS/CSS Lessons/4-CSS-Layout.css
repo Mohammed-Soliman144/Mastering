@@ -1,0 +1,72 @@
+/* CSS Layout (flex and grid) 
+
+    1- Flexbox (one dimensional layout row | column)
+    2- Grid (two dimensional layout rows and columns)
+    ====================================================
+        Master Flexbox
+    ====================================================
+        A- Parent Flex Properties:
+            1- display: flex; => activate flex context
+            2- flex-direction: row (default) | row-reverse | column | column-reverse
+                -- if flex direction is row (so row is main axis and column is cross axis) and vice verse is correct.
+                -- row reverse display items in row layout but packs items from right to left and vice verse is correct.
+            3- flex-wrap: nowrap (default) | wrap | wrap-reverse
+                -- nowrap means by default all items inside main axis will squeeze to fit with available space of container (wrap on only one line)
+                -- wrap means make items expanding to fit its content and wraps items on multiple lines.
+                -- wrap-reverse means wraps items on multilines but make it reverse from bottom to top (based on cross axis not main).
+            4- flex-flow: is a shorthand for flex-direction + flex-wrap
+                flex-flow: row nowrap; (default)
+            5- justify-content: flex-start (default) | flex-end | center | space-between | space-around | space-evenly
+                -- justify-content means justify items inside container on main axis based on values:
+                    flex-start: pack items from at the start left corner (if row-reverse or column-reverse pack items to the end right corner)
+                    center: centering items
+                    flex-end: pack items at the end right corner (if row-reverse | column-reverse pack items at the start left corner)
+            6- align-items: stretch (defualt) | flex-start | flex-end | baseline | center
+                -- align-items: align items on the cross axis based on its values
+                    1- stretch means make items expanding to fill up the container space
+                    2- flex-start means set items on the top side of container and takes its content size (height)
+                    3- flex-end means set items on the bottom side of container and takes it content size (height)
+                    3- center means centering items inside the container
+                    4- baseline means make all items of container aligns on the same line and that line matching item content itself 
+                    which means baseline = baseline for all items inside container + baseline matching baseline of all item content itself 
+            7- align-content: values as justify-content flex-start (default) | flex-end etc...
+                -- align-content only works when flex-wrap is wrap | wrap-reverse
+                -- align-content so its align items on multiple lines based on -cross axis to fill empty spaces between rows or columns
+            8- gap: row-gap column-gap; css units (px, rem, vw, vh,etc...)
+                gap: 5px; (for row and column)
+                gap: 5px 10px; row 5px and column 10px
+        B- child flex properties:
+            1- order: 0 (default) | takes up positive and negative value +|- values 
+                -- order means change order of items inside container which means make last item position displayed at first item position) when use order: -1; on the last item
+            2- flex-grow: 0 (default) | takes up positive values and zero
+                -- flex-grow: 2; 
+                -- flex-grow works on available leftover space from its container size based on below formula:
+                    formula item size after growing = flex-basis + (free leftover space * (flex-grow of item / total flex-grow of all items))
+                -- suppose if container is 800px and there are 3 childs each child flex-basis (starting point) 200px so free leftover space = 800 - ( 3 childs * 200 flex-basis) = 200px
+            3- flex-shrink: 1 (default) | takes positive values and zero
+                -- flex-shrink only works if the total size of all childs is greater than total size of its container.
+                -- which means if there any free available size (space) inside container the flex-shrink will not work.
+                -- flex-shrink formula:
+                    item size after shrinking = flex-basis - (negative overflow space * (flex-basis of item / total flex-basis of all items))
+            4- flex-basis: auto (default) | takes units of css like px | vw |vh | ch and so on 
+                -- flex-basis is only a start point of size of item but its not a minimum limit of size or maximum limit so only initial start point
+            5- flex: is a shorthand property for flex-grow flex-shrink flex-basis
+                -- flex: initial; equals (initial - fixed sizing but supports squeezing on narrow viewports
+                    flex-grow: 0
+                    flex-shrink: 1
+                    flex-basis: auto
+                -- flex: auto; (auto fully fluid or fully flexible which items shrink and grow based on available container size)
+                    flex-grow: 1
+                    flex-shrink: 1
+                    flex-basis: auto
+                -- flex: none; (none Total static which items already prevented from growing or shrinking)
+                    flex-grow: 0
+                    flex-shrink: 0
+                    flex-basis: auto
+                -- flex: 1 (1 - grows and shrinks based on its container size)
+                    flex-grow: 1
+                    flex-shrink: 1
+                    flex-basis: 0%
+            6- align-self: overrides of align-items 
+                -- override means if align-items: stretch; (on its container) and align-self: center; (on its child) so center wins which already override align-items
+*/
