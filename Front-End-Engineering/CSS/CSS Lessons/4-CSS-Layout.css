@@ -69,4 +69,89 @@
                     flex-basis: 0%
             6- align-self: overrides of align-items 
                 -- override means if align-items: stretch; (on its container) and align-self: center; (on its child) so center wins which already override align-items
+
+    =============================================================
+        2- Master Grid (Two dimensional layouts rows and columns)
+    =============================================================
+        A- Parent Grid Properties:
+            1- display: grid; => means activate grid context
+            2- grid-template-columns: 100px 200px 300px | repeat(3, 300px) | repeat(3, minmax(300px, 1fr)) | auto 100px 300px | auto;
+                -- grid-template-columns means define width of each item inside grid
+                -- grid-template-columns is explicit way to define columns
+            3- grid-template-rows: 100px 200px 300px | repeat(3, 300px) | repeat(3, minmax(300px, 1fr)) | auto 100px 300px | auto;
+                -- grid-template-rows means define height of each item inside grid
+                -- grid-template-rows is explicit way to define rows
+            4- grid-auto-flow: row (default) | column | dense
+                -- why this behavior which already grid is two dimensional layout rows and columns but form other overview when browser render DOM (html file) must you define the rule the browser must be follow if row or column and so on. (CSSOM Phase at browser which html as any binary file parse from top to bottom and css refine this behavior to set items besides it inside rows or columns)
+                -- dense means 
+            5- justify-content and align-content => 
+                -- when say content means control behavior of grid cells inside grid container.
+                -- when say justify always justify refers to justify elements or items from left to right (as horizontal axis)
+                -- when say align always align refers to align elements or items from top to bottom (as vertical axis)
+                -- justify-content: start (default) | end | center | space-between | space-around | space-evenly;
+                -- align-content: start (default) | end | center | space-between | space-around | space-evenly;
+                -- when say content that means properties values to control behavior items inside grid container which equals start | end | center | space-between | space-around | space-evenly
+            6- place-content is shorthand of align-content justify-content (alphabitcal ordering a then j)
+                place-content: align-content justify-content
+            7- justify-items and align-items
+                -- when says items means control behavior of item contents itself inside each item
+                -- when say justify always justify refers to justify elements or items from left to right (as horizontal axis)
+                -- when say align always align refers to align elements or items from top to bottom (as vertical axis)
+                -- justify-items:  stretch (default) | start | end | center | baseline
+                -- align-items: stretch (default) | start | end | center | baseline
+                -- when say items means controls behavior item contents itself inside each item which means properties values start | end | center | baseline | stretch
+            8- place-items is a shorthand for align-items justify-items (alphabitcal ordering a then j)
+                place-items: align-items justify-items
+            9- grid-template-areas is visualize your grid container in rows and columns but in string-wise method which: 
+                -- each string represented a whole row between double quotation "" (single row)
+                -- each word represented a column itself inside row
+
+                grid-template-areas: 
+                    "header header header header"
+                    "main main main aside"
+                    "footer footer footer footer"
+                so grid contains 3 rows and 4 columns (grid cell = 12 cell)
+            10- grid-auto-columns and grid-auto-rows
+                -- grid-auto-columns is implicit way to define the remains columns inside grid automated
+                -- grid-auto-rows is implicit way to define the remains rows inside grid automated
+                -- grid-auto-rows and grid-auto-columns can not use repeat function with each one because its implicit way to define columns which means already you do not know absolute number of rows or columns inside grid
+                -- example:
+                    grid-template-columns: repeat(3, 300px); (width)
+                    grid-template-rows: repeat(3, 400px); (height)
+                    grid-auto-columns: 400px; means after first 3 columns with size as width 300px for each one if you need any other columns created new ones with 400px for width (size for each one automated)
+                    grid-auto-rows: 100px 150px 200px; means after 3 first rows with size as height 400px if you need any other rows created new ones based on this sequence so (4th, 5th, 6th) as (100px, 150px, 200px) then repeated in the same sequence.
+
+        B- Child Grid Properties:
+            1- grid-column and grid-row both properties to define starts edge (position) for column | row and ends edge (position) for column | row
+                -- grid-column: grid-column-start / grid-column-end
+                -- grid-row: grid-row-start / grid-row-end
+                -- grid-row: 1 / 4; suppose your grid contains 6 rows
+                    so this child will starts for 1th row to the bottom edge of 3th row or the top edge of 4th row (same for grid-column)
+
+                -- grid-row: 1 / span 3; (span here means count 3 rows start counting from 1th row that means ends at the bottom edge of row 3th or the top edge of row 4th (grid-row: 1 / span 3 === 1 / 4) (1 + 3 = 4)
+                -- grid-row: span 3 / -1; 
+                    -1 means end with last row in the grid (suppose grid contains 5 rows) (if grid container contains 5 rows last row 6th row so 6 = 6 - 3 = 3 === 3 / 6) 
+            2- grid-area: define a string word of each cell inside grid and used with grid-template-areas
+                grid-template-areas: 
+                    "header header header header"
+                    "main main main aside"
+                    "footer footer footer footer"
+                so grid-area
+                .main {
+                    grid-area: main;
+                }
+            3- align-self and justify-self overrides align-items and justify-items as above mentioned rules
+        C- Responsive Grid Layout without need to use media queries:
+            1- auto-fit and auto-fill  (use in Parent Grid Properties)
+                -- grid-template-columns: repeat(auto-fit | auto-fill, minmax(400px, 1fr))
+                -- auto-fit and auto-fill only works when there is leftover free space inside grid container
+                -- auto-fit = takes up fully leftover free space of grid container (no any free spaces)
+                -- auto-fill = takes a part of leftover free space of grid container (left free spaces inside grid no take fully width or height of grid)
+            2- subgrid: (use in Child Grid properties)
+                -- subgrid does not means make grid cell as nested grid which is already fine and supported (possible)
+                -- subgrid means make each part or item inside grid container take same height and width of its parent grid container with a connection way to make all items inherit justify-content, align-content, justify-items and align-items which means make all parts inside each grid cell matched justifying and alignment of its parent grid (grid-template-columns: subgrid; apply on specific child you need to set subgrid not all childs)
+
+                grid-template-columns: subgrid; (inside child of grid)
+                grid-template-rows: subgrid;
+
 */
