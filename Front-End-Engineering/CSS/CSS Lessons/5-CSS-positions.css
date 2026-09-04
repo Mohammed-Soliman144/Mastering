@@ -1,0 +1,71 @@
+/* CSS Positions:
+    1- static
+    2- relative
+    3- absolute
+    4- fixed
+    5- sticky 
+*/
+
+.static {
+  /* DEFAULT VALUE - no any change in document flow */
+  position: static;
+  /* all offset directions - has no effect on position static */
+  top: 10px;
+  /* USE CASE - reset position of elements */
+}
+
+.relative {
+  /* Keep space of element in the document flow and change direction based on its position */
+  position: relative;
+  /* push element 10px to bottom based on its position - which
+    top: offset element to bottom
+    right: offset element to left
+    bottom: offset element to top
+    left: offset element to right
+ */
+  top: 10px;
+  /* shrink-to-fit => NO - width of element does not change or effect */
+  /* USE CASE: 
+     -- use with pseudo elements (::before, ::after)
+     -- use as parent for other absolute child positions
+  */
+}
+
+.sticky {
+  /* sticky position behaves as a normal element with static position in document flow until to reach specific threshold (offset directions) then element behave as fixed position */
+  position: sticky;
+  /* element behaves as a normal element with static position then sticks when reach to 10px from the top of nearest scrollable ancestors then become fixed */
+  top: 10px;
+  /* shrink-to-fit - No - width of element keep as it */
+  /* element does not remove from document flow but preserve space of element as it */
+}
+
+.absolute {
+  /* absolute position is remove element and its space from document flow based on offset direction of it containing block (parent element) and position of parent can be any position other than static */
+  position: absolute;
+  /* offset element 10px to bottom based on its parent position */
+  top: 10px;
+  /* shrink-to-fit - YES should use inset: 0 or left: 0 and right: 0 to take full width */
+  inset: 0;
+  /* 
+    left: 0;
+    right: 0; 
+  */
+  /* may be need to use z-index with position absolute to define order of element in stack context higher index nearest to user eye so z-index: 1000 is above z-index: 999 and z-index: auto (DEFAULT VALUE) (z-index is Optional) */
+  z-index: 10;
+}
+
+.fixed {
+  /* fixed position remove space of element from document flow and change position based on the root element (or viewport) */
+  position: fixed;
+  /* offset element to bottom based on viewport or root */
+  top: 10px;
+  /* shrink-to-fit - YES should use inset: 0 or left: 0 and right: 0 to take full width */
+  inset: 0;
+  /* 
+    left: 0;
+    right: 0; 
+  */
+  /* may be need to use z-index with position fixed to define order of element in stack context higher index nearest to user eye so z-index: 1000 is above z-index: 999 and z-index: auto (DEFAULT VALUE) - (z-index is Optional) */
+  z-index: 10;
+}
