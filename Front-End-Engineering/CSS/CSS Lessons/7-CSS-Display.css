@@ -11,7 +11,7 @@
         8- Allow side by side sibling             =>   NO    |        YES    |  YES 
 
     2- Types elements of inline-block
-        input | img | select | textarea | video | audio | object | canvas | iframe | embed
+        input | img | select | textarea | video | audio | object | canvas | iframe | embed | meter | progress
     3- Types elements of inline
-        a | span | u | strong | mark | sup | sub | i | em | ins | del | b | s (for strikethrough) | small 
+        a | span | u | strong | mark | sup | sub | i | em | ins | del | b | s (for strikethrough) | small | br | q | cite | wbr
 */

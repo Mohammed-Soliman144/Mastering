@@ -1,0 +1,116 @@
+/*  CSS Typography
+
+        Typography Properties |   values  |   Meaning and Uses  | Notes
+            1- font-family: Arial, Helvatica, sans-serif;
+                -- must use font-stack not only one font ends with generic-font like serif or sans-serif (as normal)
+                -- if font name contains two words separated by whitespace wraps inside double quotation "New Times Remon"
+                -- if download font files as static files locate files inside public/assets/fonts directory then in css file below instructions:
+                    globals.css File
+                        @font-face {
+                            font-family: "myCustomFontName";
+                            src: "../public/assests/fonts/font-name.woff2" format("woff2");
+                            font-weight: 400;
+                            font-display: swap;
+                        }
+                        --- best format for web fonts is woff2
+                        --- all above styles set after reset styles and before utilies or component styles (so at the top of css before :root always) then rewrite font-family inside :root
+                -- if use CDN (Content Delivery Network) for fonts use below instructions in css file: 
+                    globals.css file
+                        @import url("https://fonts.googleapis.com/css2?family=inter:wght@400&display=swap");
+                        --- always set above styles after reset styles and before :root styles then rewrite font-family inside :root
+            2- font-size: 1rem (DEFAULT VALUE);
+                -- for font-size the best css units used is rem which make it relative to the root element (html) which 1rem = 16px (DEFAULT VALUE)
+                -- CSS Units for font-size rem | em  | px 
+                    rem => relative to the root element (html which is default 16px)
+                    em => relative to font-size of element itself as a percentage or relative to parent element
+                -- There are names values for font-size (not common use in practical) like 
+                    xx-small | x-smal | small | smaller | medium | large | larger | x-large | xx-large
+            3- font-weight: 100 to 900 | bold | bolder | lighter
+                100 refer to thin
+                400 refer to regular
+                500 refer to normal
+                600 refer to semi-bold
+                700 refer to bold
+                800 refer to bolder
+                900 refer to black
+            4- font-style: normal (DEFAULT VALUE) | italic | oblique;
+            5- text-align: left | center | right | justify | start | end;
+                -- start support direction: ltr or rtl (which arabic or english make text align to start of writing.
+                -- end support direction: ltr or rtl (which arabic or english make text align to end of writing.
+            6- text-transform: capitalize | uppercase | lowercase | normal;
+            7- letter-spacing:  value-px; (negative or positive)
+                -- 10px make space between letters expanding
+                -- -10px make space between letter shrinking
+            8- word-spacing: value-px; (negative or positive)
+                -- 10px make space between words expanding
+                -- -10px make space between words shrinking
+            9- text-decoration: underline | overline | none (DEFAULT VALUE) | line-through | double | dotted | dashed
+            10- whitespace: normal | nowrap | pre | pre-wrap; (only check if word can be wrapped or divided on two lines)
+            11- overflow-wrap: normal | break-word | anywhere;
+            12- word-break: normal | break-all;
+                -- white-space => check if word can be split or set in multi-lines 
+                -- overflow-wrap => safety property to split long urls or unbroken strings
+                -- word-break => forcefully property to split any word from anywhere even if word can able be split
+                -- hyphens: check if word is long and can be split set hyphens between word parts
+
+                overflow-wrap: break-word | anywhere | normal;
+                word-break: normal | break-all;
+                white-space: normal | nowrap | pre | pre-wrap;
+                hyphens: auto | manual | none;
+                text-overflow: ellipsis | clip;
+
+                .paragraph {
+                    white-space: normal;
+                    overflow-wrap: break-word;
+                    hyphens: auto;
+                }
+
+                .long-string-truncate {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    overflow-wrap: break-word;
+                    white-space: nowrap; // must use white-space: nowrap;
+                }
+
+            13- text-overflow: clip | ellipsis;
+            14- hyphens: auto | manual | none;
+            15- text-rendering: optimizeSpeed;
+            16- -webkit-font-smoothing: antialiased; (for chrome, safarai)
+            17- -moz-osx-font-smoothing: grayscale; (for mozilla browser)
+            18- text-indent: value-px; (left empty space as padding before text)
+            19- direction: ltr (DEFAULT) | rtl;
+            20- writing-mode: horizontal-tb | vertical-lr | vertical-rl;
+            21- font-variant: normal | small-caps;
+            22- text-shadow: [inset] X-shadow Y-shadow blur shadow-color;
+                by default all shadow is outset (so do not write)
+            23- box-shadow: [inset] X-shadow Y-shadow blur spread shadow-color;
+*/
+
+.typography {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-align: center;
+  font-style: italic;
+
+  color: rgb(255 0 255 / 30%);
+
+  line-height: 1.6;
+  text-decoration: underline;
+  text-transform: capitalize;
+  text-indent: 20px;
+  letter-spacing: 5px;
+  word-spacing: 3px;
+  font-display: swap;
+  font-variant: small-caps;
+  text-overflow: clip;
+  white-space: nowrap;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialaised;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  writing-mode: horizontal-tb;
+}
