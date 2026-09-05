@@ -13,11 +13,11 @@
                             font-display: swap;
                         }
                         --- best format for web fonts is woff2
-                        --- all above styles set after reset styles and before utilies or component styles (so at the top of css before :root always) then rewrite font-family inside :root
+                        --- all above styles set before reset styles (so at the top of css before :root always) then rewrite font-family inside :root
                 -- if use CDN (Content Delivery Network) for fonts use below instructions in css file: 
                     globals.css file
                         @import url("https://fonts.googleapis.com/css2?family=inter:wght@400&display=swap");
-                        --- always set above styles after reset styles and before :root styles then rewrite font-family inside :root
+                        --- always set above styles before reset styles and before :root styles then rewrite font-family inside :root
             2- font-size: 1rem (DEFAULT VALUE);
                 -- for font-size the best css units used is rem which make it relative to the root element (html) which 1rem = 16px (DEFAULT VALUE)
                 -- CSS Units for font-size rem | em  | px 
@@ -81,9 +81,16 @@
             19- direction: ltr (DEFAULT) | rtl;
             20- writing-mode: horizontal-tb | vertical-lr | vertical-rl;
             21- font-variant: normal | small-caps;
-            22- text-shadow: [inset] X-shadow Y-shadow blur shadow-color;
-                by default all shadow is outset (so do not write)
+            22- text-shadow: X-shadow Y-shadow blur shadow-color; (note text-shadow does not support inset value which its related to box-shadow)
             23- box-shadow: [inset] X-shadow Y-shadow blur spread shadow-color;
+                by default all shadow is outset (so do not write)
+            -- Orginization of CSS File Contents:
+                1- @font-face
+                2- Reset Styles
+                3- :root styles OR Design Tokens 
+                4- Base Styles => for html elements like typography for all texts
+                5- Components Styles => make a pseudo element as circle 
+                6- Utilities Styles => small reusable styles inside webpage
 */
 
 .typography {
