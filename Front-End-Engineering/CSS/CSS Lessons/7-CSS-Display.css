@@ -1,0 +1,17 @@
+/* Master CSS Display
+    1- Comparison Between inline | inline-block | block
+            Display aspects                       => block   |  inline-block | inline
+        1- starts on new line                     =>   YES   |        NO     | NO
+        2- respects width and height              =>   YES   |        YES    | NO
+        3- respect Horizontal Padding and Margin  =>   YES   |        YES    | YES
+        4- respect Vertical Padding               =>   YES   |        YES    | visual-only-breaks flow
+        5- respect Vertical margin                =>   YES   |        YES    | NO
+        6- Take full width                        =>   YES   | content-width | content-width
+        7- Participating in Margin Collapse       =>   YES   |        NO     |  NO
+        8- Allow side by side sibling             =>   NO    |        YES    |  YES 
+
+    2- Types elements of inline-block
+        input | img | select | textarea | video | audio | object | canvas | iframe | embed
+    3- Types elements of inline
+        a | span | u | strong | mark | sup | sub | i | em | ins | del | b | s (for strikethrough) | small 
+*/
