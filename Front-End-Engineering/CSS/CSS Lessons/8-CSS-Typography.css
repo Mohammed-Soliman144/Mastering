@@ -85,9 +85,10 @@
             23- box-shadow: [inset] X-shadow Y-shadow blur spread shadow-color;
                 by default all shadow is outset (so do not write)
             -- Orginization of CSS File Contents:
-                1- @font-face
-                2- Reset Styles
-                3- :root styles OR Design Tokens 
+                1- @font-face (there is no specificity for @font-face but for performance set it as the top always to parse by browser instantly)
+                2- Design Tokens and System variables
+                3- Reset Styles
+                3- :root styles 
                 4- Base Styles => for html elements like typography for all texts
                 5- Components Styles => make a pseudo element as circle 
                 6- Utilities Styles => small reusable styles inside webpage

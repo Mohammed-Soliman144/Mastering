@@ -1,0 +1,43 @@
+/* CSS Styles Links | Lists | Images 
+
+    1- Link Styles:
+        .link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .link:visited {
+            color: #ff4436;
+        }
+        .link:is(:hover, :focus, :focus-within, :focus-visible) {
+            text-decoration: underline;
+            text-decoration-thickness: 5px;
+            text-decoration-color: #080;
+            text-underline-offset: 8px;
+        }
+
+    2- List Styles:
+        .custom-list {
+            list-style-type: decimal | circle | disc | lower-roman | upper-roman;
+            list-style-position: outside (DEFAULT VALUE) | inside;
+            list-style-image: url("../public/assets/imgs/photo.png") | none (DEFAULT);
+            list-style: list-style-type list-style-position list-style-image;
+        }
+
+    3- Image Styles
+        -- Reset styles of img
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .hero-img {
+            object-fit: fill | cover | contain | none;
+                -- fill distorts the image
+                -- cover crops image based on container and cover its (best profile and banner)
+                -- contain make image contain the container with empty spaces
+            object-position: center | top | bottom | X% Y%;
+            aspect-ratio: width / height | 3 / 4 | 16 / 9 (for videos);
+        }
+
+*/
