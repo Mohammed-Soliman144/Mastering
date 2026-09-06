@@ -1,0 +1,106 @@
+/* CSS Transform and Animation 
+
+    A- CSS Transform (2D):
+        1- translate: (move element)
+            -- translate(x-unit, y-unit);
+            -- translateX(x-unit) => move-horizontal
+            -- translateY(y-unit) => move-vertical
+                unit can be px | rem | em | %
+            -- translateX(10px) move to right
+            -- translateX(-10px) move to left
+            -- translateY(10px) move to bottom
+            -- translateY(-10px) move to top
+        2- scale: (resize element)
+            transform: scale(x, y)
+            transform: scaleX(x) => scale element horizontally
+            transform: scaleY(y) => scale element vertically
+            -- scale without units can be any number
+                scale number > 1 (bigger)
+                scale number = 1 (as the same - no change)
+                scale number < 1 (smaller)
+        3- rotate => turn the element or rotate the element
+            rotate(xy-unit) => accepts only one number for x and y
+            rotateX(x-unit)
+            rotateY(y-unit)
+            -- rotate units can be deg | rad | turn (common use deg)
+            -- rotate only accepts one number for both x and y if you need different number can chain rotateX(10deg) rotateY(15deg)
+        4- skew => distorts the element
+            skew(x-unit, y-unit)
+            skewX(x-unit)
+            skewY(y-unit)
+            -- skew units always deg
+                skew(10deg, 5deg)
+    B- Transform 3D (3 dimensions):
+        1- translate3d(x, y, z)
+            translateZ(z)
+        2- scale3d(x, y, z)
+            scaleZ(z)
+        3- rotate3d(x, y, z, deg)
+            or chain rotateX(x) rotateY(y) rotateZ(z)
+            for rotate3d(x => 0 or 1, y => 0 or 1, z => 0 or 1, deg => apply for all 1s) 
+        4- there is no skew3d or skewZ only skew(x,y) or skewX(x) skewY(y)
+
+    C- CSS Animation:
+        -- animation can play without any user interaction (when page load)
+        -- animation can play forever or in infinite loop
+        -- animation has many steps as you define in 
+            @keyframes fade-in { 
+                0% {}
+                10% {}
+                20% {} 
+                40% {}
+                50% {}
+                100% {}
+            }
+        -- animation not need to trigger to play or works
+        -- animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction animation-fill-mode animation-play-state
+        -- animation-name => as the same keyframes name as below
+            @keyframes animate-colors {
+                from {
+                    background-color: red;
+                } 
+                to {
+                    background-color: yellow;
+                }
+            } 
+            so animation-name is animated-colors
+            OR
+            @keyframes animate-opacity {
+                0% {
+                    opacity: 0;
+                }
+                25% {
+                    opacity: 25%;
+                }
+                50% {
+                    opacity: 75%;
+                }
+                100% {
+                    opacity: 100%;
+                }
+            }
+            so animation-name => animate-opacity
+        -- animation-duration: value-s | value-ms;
+        -- animation-timing-function: 
+            ease => start-slow end-slow
+            ease-in => start-slow end-fast
+            ease-out => start-fast end-slow
+            ease-in-out => start-slow middle-fast end-slow
+            cubic-bezier => cubic-bezier(x1, y1, x2, y2)
+        -- animation-delay: value-s | value-ms;
+        -- animation-iteration-count: number | infinite;
+        -- animation-direction:
+            normal => run animation every cycle from forward (first keyframe 0% or from)
+            reverse => run animation every cycle from backward (last keyframe 100% or to)
+            alternate => run animation as forward then backward then forward (0% => 100% => 0%)
+            alternate-reverse => run animation backward then forward then backward (100% => 0% => 100%)
+        -- animation-fill-mode:
+            none => (DEFAULT VALUE)
+            forwards => keep last styling inside keyframes after animation ends (100% or to) (to avoid element be invisible)
+            backwards => keep first styling inside keyframes after animation ends (to avoid element be invisible) (0% or from)
+            both => combines styles of forwards + backwards behavior
+        -- animation-play-state => 
+            running => keep it running
+            paused => paused your animation
+*/
+
