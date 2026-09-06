@@ -1,0 +1,41 @@
+/* CSS Float and Clear (old CSS Layout)
+
+    -- Float is old method to distribute items in layout.
+    -- float: none (DEFAULT VALUE) | left | right | inline-start | inline-end
+            -- inline-start supports direction of web page or root element so if 
+                direction: ltr; => so float: inline-start; (left)
+                direction: rtl; => so float: inline-start; (right)
+            -- inline-end supports direction of web page or root element so if 
+                direction: ltr; => so float: inline-end; (right)
+                direction: rtl; => so float: inline-end; (left)
+    -- float use for all items that need to distribute inside container not for container itself.
+    -- must use clear property with float to fix any layout shift for ramains elements comes next after it in document flow as below: 
+        <div class="container"> 
+            <div class="card-1">Lorem</div>
+            <div class="card-2">Lorem</div>
+            <div class="card-3">Lorem</div>
+            <div class="clear">Lorem</div>
+        </div>
+        -- so must use inside container element that use float to distribute items inside its use clear as last item to fix any layout shift
+    -- clear: none (DEFAULT VALUE) | left | right | both;
+    -- note clear must be last absolute child element inside container
+
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container div:is(:first-child, :nth-child(2), :nth-child(3)) {
+  float: inline-start;
+  width: calc(100% / 3);
+  padding: 3px;
+}
+
+.clear {
+  clear: both;
+}

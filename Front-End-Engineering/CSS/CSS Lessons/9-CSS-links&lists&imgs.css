@@ -32,7 +32,7 @@
         }
 
         .hero-img {
-            object-fit: fill | cover | contain | none;
+            object-fit: fill | cover | contain | none | scale-down;
                 -- fill distorts the image
                 -- cover crops image based on container and cover its (best profile and banner)
                 -- contain make image contain the container with empty spaces
