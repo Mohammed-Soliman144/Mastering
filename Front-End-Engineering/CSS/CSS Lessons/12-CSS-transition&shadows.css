@@ -7,7 +7,10 @@
         box-shadow: [inset] x-shadow y-shadow blur spread color;
             -- by default box-shadow is outset
     C- Transition: 
-        -- transition means change element from one state to another
+        -- transition => smoothly movement from state to another state on element
+        -- transition => can not play without user interaction via class-change, pseudo-classes or js-manipulation.
+        -- transition => only contains two steps start and end
+        -- transition => only works for one time not forever or infinite loop
         -- transition: transition-property transition-duration transition-timing-function transition-dely;
             --- transition properties: opacity | transform | background-color | etc.. | all;
             --- avoid to use below properties which breaks performance:
