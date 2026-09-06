@@ -1,0 +1,71 @@
+/* CSS Background & Opacity 
+    -- A- CSS Background Properties (8 Properties):
+        -- note background means background color or image that behind the content
+            1- background-color
+            2- background-image (image or gradients)
+            3- background-position
+            4- background-size
+            5- background-attachment
+            6- background-repeat
+            7- background-origin
+            8- background-clip
+
+        1- background-color: 
+                rgb(255 0 66 / 0.30) | 
+                #ff4436 | 
+                hsl(88 50% 100%) | 
+                oklch()
+        2- background-image: 
+                none (DEFAULT VALUE) | 
+                url("../public/assets/imgs/banner.png") | 
+                linear-gradient(to left | to right | to bottom | to top, color-1 stop-1, color-2 stop-2, etc..) |
+                conic-gradient(from 0deg | from 360deg | from 90deg | from 180deg | from 270deg, color-1 stop-1, color-2 stop-2, etc...)
+                radial-gradient(circle | circle at center | circle at top left | circle at top right | circle at bottom left | circle at bottom right, color-1 stop-1, color-2 stop-2, etc...)
+        3- background-position: 
+                center (DEFAULT) | top | right | bottom | left | X% Y% | X-px Y-px (accepts two values if omitted one apply center to omitted value whatever the exist value what is)
+        4- background-size: (as object-fit)
+            auto (DEFAULT) |
+            cover |
+            contain | 
+            width-% height-% |
+            width-px height-px;
+        5- background-repeat: 
+                repeat (DEFAULT) |
+                no-repeat |
+                repeat-x |
+                repeat-y | 
+                space | 
+                round 
+        6- background-attachment: (make image background attached to viewport or page or content when scrolling)
+                scroll (DEFAULT - scroll within page) |
+                fixed (scroll within viewport) |
+                local (scroll within content) must use inside element has content overflow property (overflow: scroll)
+        7- background-origin: (from where starts drawing image background accepts the same values of background-clip without text value)
+                border-box (DEFAULT VALUE - stops when attach or teach border) |
+                none |
+                content-box (only content of element) |
+                padding-box (stops when attach or teach padding) |
+        8- background-clip: (from where starts cut off the image or color background)
+                border-box ( DEFAULT VALUE | stops when attach or teach border) |
+                none |
+                content-box (only content of element) |
+                padding-box (stops when attach or teach padding) |
+                text (when need to apply image or color background for text)
+        9- background-blend-mode: 
+                -- this property only applies when there are more than one background image or background color or both but not one background
+                normal (DEFAULT VALUE) |
+                multiply (rich blending - make image darken based on two background) |
+                screen (rich blending - make image lighten based on two background) |
+                overlay (apply contrast on image which make combination on multiply and screen) | 
+                lighten (low blending - pixel selector) |
+                darken (low blending - pixel selector)
+        10- background shorthand property:
+                background: bg-color bg-image bg-position / bg-size bg-attachment bg-repeat bg-origin bg-clip
+
+        -- when use background-clip and set value text must use vendor prefixes for chrome as below:
+            -webkit-background-clip: text;
+            background-clip: text;
+    B- Opacity Property: 
+            -- note when use opacity you create stacking context for element itself and all its childs (as the same when use position, z-index, filter, transform, etc...)
+            -- opacity: 0 (tarsparent) | 1 (visible - DEFAULT)
+*/
