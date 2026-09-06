@@ -1,0 +1,26 @@
+/* CSS Shadows and Transition
+
+    A- Text Shadow:
+        text-shadow: x-shadow y-shadow blur color;
+            -- text shadow does not accept inset property-value
+    B- Box Shadow:
+        box-shadow: [inset] x-shadow y-shadow blur spread color;
+            -- by default box-shadow is outset
+    C- Transition: 
+        -- transition means change element from one state to another
+        -- transition: transition-property transition-duration transition-timing-function transition-dely;
+            --- transition properties: opacity | transform | background-color | etc.. | all;
+            --- avoid to use below properties which breaks performance:
+                    width, height, top, right, bottom, left, margin, padding, position, display
+            --- transition-duration: value-s | value-ms;
+            --- transition-timing-function:
+                ease => start-slow end-slow
+                ease-in => start-slow end-fast
+                ease-out => start-fast end-slow
+                ease-in-out => start-slow middle-fast end-slow
+                cubic-bazier => cubic-bazier(x1, y1, x2, y2)
+            --- transition-delay: value-s | value-ms;
+                transition: opacity 0.4s ease 1s, background-color 0.6s ease-in 2s;
+                    --- delays means above wait 1 second before run transition opacity then wait 2 seconds before run transition background-color
+
+*/
