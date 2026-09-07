@@ -1,0 +1,93 @@
+/* CSS Media Queries
+
+    1- Media query syntax
+    2- Ways to write media queries
+    3- Categories of media queries
+    4- declare custom media query using @custom-media
+
+    1- Media query syntax:
+        @media media-type and (condition-name: condition-value) {
+            css-selector {
+                property-name-1: property-value-1;
+                property-name-2: property-value-2;
+                property-name-3: property-value-3;
+            }
+        }
+
+        -- there are only 3 media-types:
+            all => DEFAULT media-type target all screen sizes desktops/mobile and print media (can ommited)
+            screen => target all screen size desktop/mobile
+            print => target only the webpage view and styles when printing it
+            speech => target screen readers (viewing the webpage for screen readers)
+    2- Ways To write media-queries:
+        =============================================================================================
+        |  Old Ways                                => Modern Ways
+        =============================================================================================
+        1- @media screen and (min-width: 768px) {} => @media screen and (width >= 768px) {}
+        2- @media screen and (max-width: 768px) {} => @media screen and (width <= 768px) {}
+        2- @media screen and (min-width: 1024px) and (max-width: 1280px) {} 
+                => @media screen and (1024px <= width <= 1280px) {}
+            -- Media Query with condition min-width => targets => Mobile-First Approach
+            -- Media Query with condition max-width => target => Desktop-First Approach
+            -- min-width: 640px => width >= 640px => Mobile-First Approach
+            -- max-width: 640px => width <= 640px => Desktop-First Approach
+    3- Categories of Media Queries =>
+        A- Sizing Media Queries
+        B- Not Sizing Media Queries
+
+            A- Media Queries related to sizing: 
+                1- @media screen and (width >= 768px) {}
+                2- @media screen and (width <= 768px) {}
+                3- @media screen and (640px <= width <= 768px) {}
+                4- @media print and (orientation: landscape) {
+                        .mobile-device-scrns {
+                            width: 100%;
+                            font-size: 15pt;
+                        }
+                    }
+                    -- orientation can be landscape or portrait
+
+            B- Media Queries did not relate sizing:
+                1- @media (prefers-color-scheme: dark) {
+                    :root {
+                        --bg-dark-color: #333;
+                        --fg-dark-color: #efefef;
+                    }
+                }
+                    -- @media (prefers-color-scheme: dark | light) {} === @media all and (prefers-color-scheme: dark | light) {}
+                2- @media (prefers-reduced-motion: reduce) {
+                    * {
+                        animation: none !important;
+                        transition: none !important;
+                    }
+                }
+                    -- @media (prefers-reduced-motion: reduce) {} === @media all and (prefers-reduced-motion: reduce) {}
+                3- @media (hover: none) {
+                    .selector {
+                        display: block;
+                    }
+                }
+                    -- @media (hover: none) {} === @media all and (hover: none) {}
+                4- @media (pointer: fine) {
+                    .selector {
+                        cursor: not-allowed;
+                    }
+                }
+                    -- @media (pointer: fine) {} === @media all and (pointer: fine) {}
+    4- declare custom media using @custom-media
+        -- @custom-media syntax:
+            @custom-media --media-name media-type and (condition-name: condition-value)
+            and using @media (--media0-name)
+            -- note custom-media is as any variable name in css starts with two dashes (hyphens) --
+
+
+            @custom-media --desktop-screens all and (1024px <= width <= 1280px) => must set on the top level of css file
+
+            then using as below: 
+                @media (--desktop-screens) {
+                    .selector {
+                        property-name-1: property-value-1;
+                        property-name-2: property-value-2;
+                    }
+                }
+*/

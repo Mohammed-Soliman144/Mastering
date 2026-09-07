@@ -5,8 +5,10 @@
     ==========================================================================================
     1. px (pixels - absolute fixed size)             => use for border, border-radius, outline, box-shadow, text-shadow
     2. rem (root element - relative to root element) => use for typography and global spacing 
-    3. em (relative to element text font-size)                 => use for local spacing inside reusable components
-    4. vw, vh (viewport width, viewport height)      => use for dimensions and macro layouts like width, height, min-width, min-height
+    3. em (relative to element text font-size)       => use for local spacing inside reusable components
+    4. vw, vh, vmin, vmax 
+        (viewport width, viewport height, 
+        viewport minimum, viewport maximum)          => use for dimensions and macro layouts like width, height, min-width, min-height
     5. dvh, lvh, svh, dvw, lvw, svw 
         (dynamic/large/small viewport height)        => use mobile specification to fix mobile browser bar bugs  
     6. pt, in, cm (points, inches, centimeters)      => use for print media queries @media print {}
@@ -24,7 +26,21 @@
     ===========================================================================================
     1. 1rem = 16px
     2. 1.5em and font-size of element 20rem = 20 * 16 = 320px = 320px * 1.5 = 480px
+        if .parent {
+                font-size: 20rem;
+            }
+            .child {
+                padding: 1.5em; (1.5em === 480px)
+            }
+            .grand-child {
+                padding: 1.5em; (1.5em === 480px * 1.5 = 720px) and so on
+            }
     3. 15vw and actual width 800px = actual-width-px * 15% = 800px * 15% = 120px
+        15vmin and min-width 800px and min-height 600px => 
+            15vmin = 15% * min(800px, 600px) => 15% * 600px = 90px
+            so 
+                vmin = minimum(viewport-width, viewport-height) * (num-units / 100)
+                vmax = maximum(viewport-width, viewport-height) * (num-units / 100)
     4. 
         -- note inche > centimeter > point > pixel
         which 1 inche (in) = 2.54 centimeters (cm) = 72 points (pt) = 96 pixels (px)
