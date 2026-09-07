@@ -1,0 +1,71 @@
+/* CSS Variables and Functions 
+
+    A- CSS Variables
+    B- CSS Functions
+        A- CSS Variables:
+            ** There are 2 types of variables in CSS:
+                1- Global Variables as variables can access to its from anywhere in web app
+                2- Local Variables as variables can only access within its scope that is declared inside it
+            1- Global Variables:
+                -- must be declared inside :root selector.
+                -- declare variable css syntax:
+                    --variable-name: variable-value;
+                
+                    :root {
+                        --primary-color: #ff4436;
+                        --secondary-color: #080;
+                        --space-1: 0.125rem;
+                        --space-2: 0.25rem;
+                        --text-base: 1.125rem;
+                        --text-large: 2rem;
+                    }
+
+                -- when recalling or reusing css variable in any selector as below:
+                    selector {
+                        -- note only way use fallback-value if you variable is not exist will set fallback-value to property-name
+                        property-name: var(--variable-name, fallback-value);
+                    }
+            2- Local Variables:
+                -- must be declared inside selector not at root level
+                    selector {
+                        --padding-sm: 1.2em;
+                        padding-inline: var(--padding-sm, 15px);
+                    }
+        ** Note all CSS Variables are CASE-Sensitive so --padding-sm !== --padding-SM
+
+    B- CSS Functions:
+        ** There are many and many CSS Functions:
+            1- Color Functions:
+                A- rgb(255 0 98 / 0.30) => rgb(red green blue / opacity) which red 0 to 255
+                B- hsl(120 100% 50% / 1) => hsl(hue saturation lightness / opacity) always set saturation 100% and lightness always set 50% for basic colors red green blue
+                C- lch() and oklch() =>  lightness-chroma-hue | ok-lightness-chroma-hue 
+                D- color-mix(in <color-space>, color-1 percentage-%, color-2 percentage-%)
+                    color-mix(in srgb, #000 70%, #fff 30%)
+                    srgb => standard red green blue
+            2- Background Functions:
+                A- linear-gradient(to top | to right | to bottom | to left, color-1 stop-1, color-2 stop-2, etc..)
+                B- conic-gradient(from 0deg | from 360deg | from 90deg | from 180deg | from 270deg, color-1 stop-1, color-2 stop-2, etc...)
+                C- radial-gradient(circle | circle at center | circle at top right | circle at top left | circle at bottom left | circle at bottom right, color-1 stop-1, color-2 stop-2, etc...)
+            3- Dimension Functions:
+                A- calc => width: calc(100% - 2rem)
+                B- clamp => clamp(min-screen,prefers,max-screen)
+                    font-size: clamp(1.125rem, 1rem + 2vw, 2.25rem)
+                C- min => width: min(90%, 40vw) => select minimum-width
+                D- max => width: max(300px, 50vw) => select maximum-width
+            4- Layout Functions:
+                A- repeat(num, size) => grid-template-columns: repeat(4, 1fr)
+                B- minmax(min-size, max-size) => grid-template-columns: repeat(4, minmax(300px, 1fr))
+            5- Transform Functions:
+                A- translate(x-px, y-px) => units px, %
+                B- scale(x-num, y-num) => num = 1 => as the same, > 1 bigger, < 1 smaller
+                C- rotate(num-deg) units deg, rad, turn (accepts only one value) | rotateX(num-deg) | rotateY(num-deg)
+                D- skew(x-deg, y-deg) units deg
+                ============================================
+                translateX(x-px) | translateY(y-px) | translate(x-px, y-px) | translate3d(x-px, y-px, z-px) | translateZ(z-px) | 
+                scaleX(num) | scaleY(num) | scale(x-num, y-num) | scale3d(x-num, y-num, z-num) | scaleZ(z-num) | 
+                rotate(num-deg) for x and y which accepts one value | rotateX(num-deg) | rotateY(num-deg) | rotate3d(x => 0 or 1, y => 0 or 1, z => 0 or 1, num-deg for x|y|z) | rotateZ(z-deg) | 
+                skew(x-deg, y-deg) | skewX(x-deg) | skewY(y-deg) no skewZ and no skew3d
+                ============================================
+            6- Pseudo Elements Functions:
+                A- attr(attribute-name) => pull attribute from html to content
+*/
