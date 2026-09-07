@@ -1,0 +1,46 @@
+/* CSS Units and Sizes 
+
+    ==========================================================================================
+    | CSS Units and Sizes                            =>   Practical Uses
+    ==========================================================================================
+    1. px (pixels - absolute fixed size)             => use for border, border-radius, outline, box-shadow, text-shadow
+    2. rem (root element - relative to root element) => use for typography and global spacing 
+    3. em (relative to element text font-size)                 => use for local spacing inside reusable components
+    4. vw, vh (viewport width, viewport height)      => use for dimensions and macro layouts like width, height, min-width, min-height
+    5. dvh, lvh, svh, dvw, lvw, svw 
+        (dynamic/large/small viewport height)        => use mobile specification to fix mobile browser bar bugs  
+    6. pt, in, cm (points, inches, centimeters)      => use for print media queries @media print {}
+
+
+    -- global spacing => padding, margin, gaps => for whole webpage
+    -- local spaceing => padding, margin, gaps => inside reusable components
+    -- dvh, lvh, svh  => for mobile specification to fix mobile browser bar bugs 
+    -- pt => use for fonts and typography in print media queries
+    -- in or cm => use for global spacing, local spacing and dimensions in print media queries
+
+
+    ===========================================================================================
+    CSS units and sizes formulas
+    ===========================================================================================
+    1. 1rem = 16px
+    2. 1.5em and font-size of element 20rem = 20 * 16 = 320px = 320px * 1.5 = 480px
+    3. 15vw and actual width 800px = actual-width-px * 15% = 800px * 15% = 120px
+    4. 
+        -- note inche > centimeter > point > pixel
+        which 1 inche (in) = 2.54 centimeters (cm) = 72 points (pt) = 96 pixels (px)
+        -- 1 inche (in) = 2.54 centimeter (cm)
+        -- 1 point (pt) = num-pixels * 0.75
+        -- 1 inche (in) = num-pixels / 96
+        -- 1 centimeter (cm) = num-pixels * (2.54 / 96) 
+    5. dvh, lvh, svh (or dvw, lvw, svw) => all use for mobile specifications to fix mobile browser bugs
+        dvh | dvw => dynamic viewport height | width
+        lvh | lvw => large viewport height | width
+        svh | svw => small viewport height | widt
+
+        dvh | lvh | svh = resolved viewport (height | width) * (number-units / 100)
+        suppose we have viewport height 800px and ui bar height 60px
+        resolved viewport (height | width) = viewport width (height) - UI Bars width (or height)
+        -- ui bar width => means it browser bar that shows tab browser and write url links in it
+        -- so resolved viewport height = 800px - 60px = 740px
+        -- so 40dvh = 740px * (40 / 100) = 296px
+*/
