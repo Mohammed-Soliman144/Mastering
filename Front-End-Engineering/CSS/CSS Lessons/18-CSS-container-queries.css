@@ -75,4 +75,9 @@
 
                     cqi => container-query inline-size based on first word horizontal (width) or vertical (height)
                     cqb => container-query block based on second word tp (height) or lr (width) or rl (width)
+
+        -- example on cqi 
+            .selector {
+                font-size: clamp(1.025rem, 5cqi, 2rem);
+            }
 */
