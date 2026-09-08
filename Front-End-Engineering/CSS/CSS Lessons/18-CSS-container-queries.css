@@ -1,0 +1,78 @@
+/* CSS Container Queries
+
+    A- Container Queries (Definition)
+    B- Container Queries (Practical Use)
+    C- Container Queries Units
+
+    A- Container Queries (Definition):
+        -- its a new feature in css that change midset of controls layouts (reusable components) based on its container parent element instead of viewport (as normal with media queries)
+        -- media queries controls items in layout based on viewport and container queries controls items in layout (reusable components) based on its container parent elements.
+        -- syntax media queries with (and keyword):
+            @media media-type and (condition-name: condition-value) {
+                .selector {
+                    property-name-1: property-value-1;
+                }
+            }
+        -- syntax container queries without (and keyword)
+            @container container-name (condition-name: condition-value) {
+                .selector {
+                    property-name-1: property-value-1;
+                }
+            }
+        -- container queries supports and keyword as normal for range conditions as below
+            @container container-name (min-width: 640px) and (max-width: 768px) {
+                .selector {
+                    property-name-1: property-value-1;
+                }
+            }
+
+    B- Container Queries (Practical Use)
+        <article class="card-wrapper" aria-label="Product Card" id="card-title">
+            <div class="card-container">
+                <figure>
+                    <img src="../public/assets/img/product-1.png" alt="describe product image" width="400" height="auto"/>
+                    <figcaption>Breif about product image</figcaption>
+                </figure>
+                <div class="card-content">
+                    <h2 aria-labelledby="card-title">Product title name</h2>
+                    <p>All Product Features and description</p>
+                </div>
+            </div>
+        </article>
+
+        -- Declare Container (step #1)
+            .card-wrapper {
+                container-name: product-grid;
+                container-type: inline-size;
+                => OR shorthand 
+                container: container-name / container-type;
+            }
+        -- Declare Container Query (step #2)
+            @container product-grid (width <= 400px) {
+                .card-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+            }
+    C- Container Query Units:
+        1- cqw (container query width as vw) => 1% * container-width = num-px
+        2- cqh (container query height as vh) => 1% * container-height = num-px
+        3- cqmin (container query minimum as vmin) => 1% * min(container-width, container-height) = num-px
+        4- cqmax (container query maximum as vmax) => 1% * max(container-width, container-height) = num-px
+        6- cqi (container query inline-size best practice and industry standard) = 1% * container-inline-size = num-px
+        7- cqb (container query block) = 1% * container-block = num-px
+            -- the main difference between cqw and cqi 
+                A- cqi => container inline-size supports writing-mode which means in all cases match direction of flow inline text 
+                B- cqw => container-width does not support writting-mode in all cases depends on container-width regardless direction of flow inline text
+                D- cqb => container query-block supports also as cqi writing-mode which in all cases match direction of flow block text 
+                
+                writing-mode     horizontal-tb (DEFAULT)     vertical-lr          vertical-rl
+                    cqi      =>    container-width          container-height     container-height
+                    cqw      =>    container-width          container-width      container-width
+                    cqb      =>    container-height         container-width      container-width
+
+                    cqi => container-query inline-size based on first word horizontal (width) or vertical (height)
+                    cqb => container-query block based on second word tp (height) or lr (width) or rl (width)
+*/

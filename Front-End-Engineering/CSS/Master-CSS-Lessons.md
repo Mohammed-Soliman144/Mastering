@@ -87,13 +87,13 @@ Accessibility Features
 
 ---
 NOT DONE YET
-1. Filters
+1. Filters => DONE
 2. Clipping & Masking
 3. Blend Modes
-4. Backdrop Filter
-5. Container Queries
+4. Backdrop Filter => DONE
+5. Container Queries => DONE
 6. CSS Counters
 7. Aspect Ratio
 8. Performance Optimization
-9. Print Styles
+9. Print Styles 
 10. Accessibility Features

@@ -46,10 +46,10 @@
                 content-box (only content of element) |
                 padding-box (stops when attach or teach padding) |
         8- background-clip: (from where starts cut off the image or color background)
-                border-box ( DEFAULT VALUE | stops when attach or teach border) |
+                border-box ( DEFAULT VALUE | stops when attach or touch border) |
                 none |
                 content-box (only content of element) |
-                padding-box (stops when attach or teach padding) |
+                padding-box (stops when attach or touch padding) |
                 text (when need to apply image or color background for text)
         9- background-blend-mode: 
                 -- this property only applies when there are more than one background image or background color or both but not one background
