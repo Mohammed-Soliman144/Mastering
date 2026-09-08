@@ -18,3 +18,82 @@
 17. Pseudo Classes and Elements
 18. CSS Positions => DONE
 19. Columns
+---
+1. 📚 Table of Contents & Topic Categories
+1. Fundamentals & Basics
+CSS3 Introduction => DONE
+Selectors (Basic & Advanced) => DONE
+Pseudo-classes & Pseudo-elements => DONE
+Box Model => DONE
+Display Properties => DONE
+2. Colors & Backgrounds
+Colors in CSS3 => DONE
+Gradients (Linear & Radial) => DONE
+Background Properties => DONE
+Opacity & RGBA => DONE
+3. Typography & Text
+Font Properties => DONE
+Web Fonts (@font-face) => DONE  
+Text Styling  => DONE  
+Text Effects & Shadows  => DONE  
+1. Layout Systems
+Flexbox (Flexible Box Layout)  => DONE  
+CSS Grid  => DONE  
+Positioning  => DONE  
+Float & Clear  => DONE  
+1. Visual Effects
+Transforms (2D & 3D)  => DONE  
+Transitions  => DONE  
+Animations  => DONE  
+Filters
+Box Shadows & Glows  => DONE  
+1. Responsive & Modern Features
+Media Queries  => DONE  
+Viewport Units  => DONE  
+CSS Variables (Custom Properties)  => DONE  
+Calc() Function  => DONE  
+1. Advanced Features
+Multiple Columns
+Clipping & Masking
+Blending Modes
+Will-change Property
+Scroll Behavior
+1. Practical & Best Practices
+CSS Architecture
+Performance Tips
+Compatibility & Prefixes
+
+--- 
+
+Table of Contents
+Advanced Selectors => DONE 
+CSS Variables & Scoping => DONE 
+Modern Color Spaces => DONE 
+Filters & Effects
+Clipping & Masking
+Blend Modes
+3D Transforms => DONE 
+Advanced Animations => DONE 
+Backdrop Filter
+Container Queries
+Dynamic Viewport Units => DONE 
+Advanced Text Properties => DONE 
+CSS Counters
+Aspect Ratio 
+Performance Optimization
+CSS Functions => DONE 
+Print Styles
+Accessibility Features
+
+---
+NOT DONE YET
+1. Filters
+2. Clipping & Masking
+3. Blend Modes
+4. Backdrop Filter
+5. Container Queries
+6. CSS Counters
+7. Aspect Ratio
+8. Performance Optimization
+9. Print Styles
+10. Accessibility Features

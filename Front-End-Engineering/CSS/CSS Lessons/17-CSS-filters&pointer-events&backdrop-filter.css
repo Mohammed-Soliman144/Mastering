@@ -1,0 +1,36 @@
+/* CSS Filter, backdrop-filter and pointer-events 
+
+    A- CSS Filter:
+        -- filter: any filter function applies graphic effects to element itself including text and its children.
+        -- backdrop-filter: its use any filter function to apply graphic effects to the area behind element itself which means all element content stays perfectely clears so must make background of element itself semi-transparent.
+        -- Filter Functions (10 Functions):
+            1- opacity(% | num) => make element color more transparent
+            2- invert(% | num) => invert or flip element color if black becomes white
+            3- grayscale(% | num) => make element color more gray
+            4- sepia(% | num) => make element color more brown (or adds brown color to its)
+            5- contrast(% | num) => make element color more contrasted
+            6- saturate(% | num) => increase or decrease color intensity
+            7- brightness(% | num) => make element color more brighter
+            8- blur(px) => make element color more blurrly
+            9- hue-rotate(deg) => rotate element color within the color wheel (from 0deg to 360deg)
+            10- drop-shadow(x-shadow y-shadow blur color) => apply shadow to visible element not the surrounding border of element
+    
+    B- backdrop-filter:
+        backdrop-filter: any-filter-function-apply-to-background-of-element
+        .selector { 
+            background: rgb(255 255 255 / 0.2); => make element more transparent
+            backdrop-filter: blur(4px);
+        }
+
+    C- pointer-events: 
+        -- in most of common real cases use pointer-events with pseudo-elements which is prevents user from interactivity with direct element so should set pointer-event: none to pseudo-elements
+        <button role="img" aria-label="Search Button" type="button">
+            <svg viewBox="24 24 0 0" width="24" height="24" aria-hidden="true" focusable="false" class="search-icon">
+                <path fill="currentColor" d="" />
+            </svg>
+        </button>
+
+        .search-icon {
+            pointer-events: none; => pointer-events: auto (DEFAULT) | none;
+        }
+*/
