@@ -11,6 +11,16 @@
                 circle(point-% at x y)
                 inset(top right bottom left round radius-px)
                 ellipse(point-% point-% at x y)
+                clip-path: url(#idOfClippath); direct-id without external file path as below example
+                    <button type="button" aria-label="Search Button">
+                        <svg viewBox="24 24 0 0" width="24" height="24" focusable="none" aria-hidden="true">
+                            <defs>
+                                <clipPath id="idOfClippath">
+                                    <path fill="currentColor" d="" />
+                                </clipPath>
+                            </defs>    
+                        </svg>
+                    </button>
             -- for polygon is most common function used always:
                 --- always accepts x y coordinates
                 --- always start for top-left top-right bottom-left bottom-right in clockwise direction
