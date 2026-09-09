@@ -1,0 +1,136 @@
+/* CSS Blend-mode
+
+    1- Blending Definition 
+    2- Categories of Blend-mode
+    3- Blend-mode functions
+    4- Practical Example on mix-blend-mode
+    5- Practical Example on background-blend-mode
+
+    1- Blending Definition:
+        -- Blending means mix more than one color or backgrounds or gradients.
+        -- Blending technically means the browser do mathmatically operation behind the scences to blend colors, background and gradients with color pixel (between painting phase and composition phase)
+        -- Blending is creating a group of layers each layer represent separating color.
+        -- note stacking context is different which stacking context means create an isolated unit includes group of elements which separated with other remain DOM and browser control which one appears front of the other based on z-index (property) and this operation can be a result of use many of css properties: 
+            --- position | z-index | transform | filter | opacity | etc...
+    
+    2- Categories of Blend-mode:
+        A- Background-blend-mode
+        B- mix-blend-mode
+        
+        A- background-blend-mode: (conditions to activate)
+            -- must have more than one background whatever type of background if color or image (but at least two background) on the same element.
+            -- background-blend-mode does not need to use isolation css property (can not blending expanding to remains document flow)
+        B- mix-blend-mode: (condition to activate)
+            -- mix-blend-mode is blending (mixing) between background element itself and whatelse behind of the element
+            -- must use isolation css property on its parent element to prevent blending from expanding to remain DOM
+
+    3- Blend-mode Functions:
+        -- background-blend-mode functions as same as mix-blend-mode
+        -- blend-mode functions:
+            normal (DEFAULT VALUE)
+            multiply => make blending mode more darker (rich blending)
+            screen => make blending mode more lighter (rich blending)
+            overlay => combination between multiply and screen
+            darken => make blending more darking (poor blending - selective darken)
+            lighten => make blending more lighting (poor blending - selective lighten)
+            difference => invert the color of element within blending process (hard difference)
+            exclusion => invert the color of element within blending process (soft difference)
+
+    4- Practical Example of background-blend-mode:
+        ** Note all practical cases for background-blend-mode
+            1- background-image + background-color
+            2- background-color + background-color
+            3- background-image + background-image
+            -- which background-image may be is binary data file as image or gradient colors
+            -- must have more than one background to turn on background-blend-mode and must on the same element
+
+        <p class="hero-paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+        blanditiis, magni esse provident sed porro veritatis quas ratione vel
+        error architecto deserunt eligendi iure perspiciatis non accusantium
+        corporis repudiandae eum!
+        </p>
+        
+        .hero-paragraph {
+            background: url("../public/assets/imgs/image.png") center / cover no-repeat scroll content-box content-box, #ff4436;
+            min-height: 100vh;
+            background-blend-mode: multiply;
+        }
+
+    5- Practical Example of mix-blend-mode:
+        ** All practical cases for mix-blend-mode
+            1- Parent element background + child element content [content may be text,images,icons,svg] => as hero banner (hero section) => must use isolation property on the parent
+            2- Sibling element background + sibling element background => multi layers vector designs => must use isolation property on the parent
+            3- Parent element background + child element Background => as venish box or overlay layer => must use isolation property on the parent
+            4- Float or fixed element + Parent or page content background => as sticky/fixed header or sticky/fixed badge => not use isolation property on the parent element which in this case parent element is :root (because may be prevent blending header with background content page)
+            ** always set mix-blend-mode on the higher order layer inside stacking order (in all cases) without use z-index the last element comes in the DOM is the higher order in stacking context or the last child in the parent is the higher order in stacking context
+
+        1- Example A => Hero Section or banner
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero__wrapper">
+                    <h1 class="hero__title" id="hero-title">Main Page Title</h1>
+                    <p class="hero__text">Lorem</p>
+                </div>
+            </section>
+
+            .hero {
+                min-height: 100vh;
+                background: url("../public/assets/imgs/hero.png") center / cover no-repeat scroll;
+                isolation: isolate;
+            }
+        
+            .hero__wrapper {
+                mix-blend-mode: multiply;
+            }
+
+        2- Example B => Multi vector layers (on silbing elements
+            <div class="wrapper">
+                <p class="one">First Child</p>
+                <p class="two">Second Child</p>
+            </div>
+
+            .wrapper {
+                isolation: isolate;
+            }
+            .one {
+                background: #000;
+            }
+
+            .two {
+                background: linear-gradient(to bottom, #efefef 50%, #333);
+                mix-blend-mode: overlay;
+            }
+        3- Example C => Vanish Box or overlay layer => (parent background and child background)
+            <div class="parent">
+                <p class="child">Lorem</p>
+            </div>
+
+            .parent {
+                isolation: isolate;
+                background: #333;
+            }
+
+            .child {
+                background: #fff;
+                mix-blend-mode: overlay;
+            }
+
+        4- Example D => sticky/fixed header or badge on the page content 
+            <body>
+                <header class="main-header">
+                    <a href="/">Logo</a>
+                </header>
+            </body>
+
+            .main-header {
+                position: fixed;
+                z-index: 9999;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 60px;
+                background: #333;
+                color: fff;
+                mix-blend-mode: difference;
+            }
+*/
