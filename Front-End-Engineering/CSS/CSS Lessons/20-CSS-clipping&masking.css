@@ -1,0 +1,64 @@
+/* CSS Clipping & Masking
+
+    A- clip-path
+    B- mask
+
+        A- clip-path:
+            -- clip-path: is a property that uses clipping functions which enables cutting hard edge of element without any effect on the box size of element which all outside parts of cutting shape is fully hidden or invisible.
+            -- when using clip-path not need to use pointer-events: none; property
+            -- clip-path functions:
+                polygon(x y, etc...) => most common used
+                circle(point-% at x y)
+                inset(top right bottom left round radius-px)
+                ellipse(point-% point-% at x y)
+            -- for polygon is most common function used always:
+                --- always accepts x y coordinates
+                --- always start for top-left top-right bottom-left bottom-right in clockwise direction
+                -- note for this starts always from top-left then clock-wise
+                    top-left | top-right | bottom-left | bottom-right
+                    top === 0%  | bottom === 100%
+                    left === 0% | right === 100%
+            ** Examples on Clipping:
+                1- Up Traingle:
+                    clip-path: polygon(50% 0%, 100% 100%, 0% 100%)
+                2- Play Video Button: (right Traingle)
+                    clip-path: polygon(0% 0%, 100% 50%, 0% 100%)
+                3- Cutting bottom right edge from hero section (diagon hero): (hero is as sequare shape)
+                    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%)
+                4- Bookmark icon:
+                    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 70%, 0% 100%)
+                5- Arrow To Right Icon:
+                    clip-path: polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%, 25% 50%)
+                6- Circle Icon: (use circle)
+                    clip-path: circle(50% at 50% 50%)
+                7- Border radius for section as square: (use inset)
+                    clip-path: inset(10px 20px 10px 20px round 5px);
+        B- mask:
+            -- masking is as similar as clipping but masking its control of visibility of elment.
+            -- masking apply on multiple elements which enables to smooth showing the shape.
+            -- masking all hidden parts of element must prevent user from interact with by mouse-click so must use pointer-events: none; on the container element of mask image
+            -- masking is a new css feature so must use vendor prefixes which is -webkit- for chrome and safarai
+            -- mask-image may be image or color gradient using linear-gradient() or radial-gradient()
+            -- mask syntax:
+                mask: mask-image mask-position / mask-size mask-repeat mask-origin mask-clip;
+                -- there is no mask-attachment as background
+            -- mask-mode syntax:
+                mask-mode: match-source (DEFAULT) | alpha (for transparent or visibility);
+
+            <div class="parent">
+                <h2>Title</h2>
+                <p>Lorem</p>
+                <button class="btn">started</button>
+            </div>
+
+            .parent {
+                -webkit-mask: linear-gradient(to left, #000 40%, transparent 100%) center / cover no-repeat border-box border-box;
+                mask: linear-gradient(to left, #000 40%, transparent 100%) center / cover no-repeat border-box border-box;
+                mask-mode: match-source;
+                pointer-events: none;
+            }
+            
+            .parent button:first-of-type {
+                pointer-events: auto; => pointer-events inherit from parent so must override on it to avoid make button unclickable
+            }
+*/

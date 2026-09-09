@@ -88,8 +88,8 @@ Accessibility Features
 ---
 NOT DONE YET 12 Topics
 1. Filters => DONE
-2. Clipping & Masking ---1
-3. Blend Modes ---
+2. Clipping & Masking => DONE
+3. Blend Modes => DONE
 4. Backdrop Filter => DONE
 5. Container Queries => DONE
 6. CSS Counters --- + all pseudo element patterns
@@ -98,9 +98,11 @@ NOT DONE YET 12 Topics
 9. Print Styles ---4
 10. Accessibility Features ---5
 11. At Rules CSS ---6
+
+---
 12. Reset Styles (Practical) ---7
 13. Animation, transition and transform (Practical) ---8
 14. Header Patterns Components (Practical) ---9
 15. Footer Patterns Components (Practical) --- 10
-15. Main Patterns Components (Practical) ---11
-15. Aside Patterns Components (Practical) ---12
+16. Main Patterns Components (Practical) ---11
+17. Aside Patterns Components (Practical) ---12
