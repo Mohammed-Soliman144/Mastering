@@ -1,0 +1,180 @@
+/* CSS Pseudo-element functions with content property inside ::before and ::after  & CSS Aspect-ratio
+
+    A- Categories of Pseudo elements:
+        ::before | ::after | ::selection | ::first-letter | ::first-line | ::placeholder | ::marker | ::backdrop
+    B- CSS Pseudo Element Functions with content property inside ::before and ::after
+        1- content: attr(any-attribute-name) => not only dataset attributes thats starts with data but all attributes
+            --Example:
+                <button class="btn-save--primary" type="button" data-save-success="You are Saved Successfully!" save-failure="Something Went wrong!">Save</button>
+                .btn-save--primary {
+                    width: 40px;
+                    aspect-ratio: 1;
+                    background: linear-gradient(to bottom, #00f 80%, transparent 100%);
+                    color: #fff;
+                    text-align: center;
+                    font-family: Inter;
+                    cursor: pointer;
+                    position: relative;
+                }
+                
+                .btn-save--primary::before {
+                    content: attr(data-save-success);
+                    width: fit-content;
+                    padding: 2px;
+                    position: absolute;
+                    top: 150%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 10;
+                    background: #080;
+                    color: #fff;
+                    opacity: 0;
+                    transition: opacity 0.4ms ease-in-out;
+                }
+                
+                .btn-save--primary:hover::before {
+                    opacity: 1;
+                }
+                .btn-save--primary::after {
+                    content: attr(data-save-success);
+                    width: fit-content;
+                    padding: 2px;
+                    position: absolute;
+                    top: 150%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 10;
+                    background: #080;
+                    color: #fff;
+                    opacity: 0;
+                    transition: opacity 0.4ms ease-in-out;
+                }
+                .btn-save--primary:hover::after {
+                    opacity: 1;
+                }
+        2- content: counter(counter-name)
+            -- counter() can use to count nested child element as counters() but the main difference counter(counter-name) accepts only counter-name but counters(counter-name, "separator-string", format)
+            <div class="pagination">
+                <button type="button" class="pagination__btn" aria-label="Button 1"></button>
+                <button type="button" class="pagination__btn" aria-label="Button 2"></button>
+                <button type="button" class="pagination__btn" aria-label="Button 3"></button>
+                <button type="button" class="pagination__btn" aria-label="Button 4"></button>
+                <button type="button" class="pagination__btn" aria-label="Button 5"></button>
+            </div>
+
+            // reset counter on parent element
+            .pagination {
+                counter-reset: pagination-counter;
+            }
+            // increment counter on child element
+            .pagination__btn {
+                counter-increment: pagination-counter;
+                position: relative;
+            } 
+            
+            .pagination__btn::before {
+                content: counter(pagination-counter);
+                font-size: 1em;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: transparent;
+            }
+        3- content: counters(counter-name, "separator-string", format)
+            -- format may be predefined keyword as lower-alpha, upper-alpha, lower-roman, upper-roman or can be "string-format"
+            <div class="pagination">
+                <button type="button" class="pagination__btn" aria-label="Button 1"></button>
+                <div class="pagination__wrapper">
+                    <button type="button" class="pagination__btn" aria-label="Button 2"></button>
+                <div>
+                <div>
+                    <div class="pagination__wrapper">
+                        <button type="button" class="pagination__btn" aria-label="Button 2"></button>
+                    </div>
+                <div>
+                <div>
+                    <div>
+                        <div class="pagination__wrapper">
+                            <button type="button" class="pagination__btn" aria-label="Button 2"></button>
+                        </div>
+                    </div>
+                <div>
+                <div class="pagination__wrapper">
+                    <button type="button" class="pagination__btn" aria-label="Button 2"></button>
+                <div>
+            </div>    
+
+            .pagination {
+                counter-reset: nested-counter;
+            }
+
+            .pagination__wrapper > .pagination__btn {
+                counter-increment: nested-counter;
+                position: relative;
+            }
+
+            .pagination__wrapper >  .pagination__btn::before {
+                content: counters(nested-counter,".", " ");
+                font-size: 1em;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: transparent;
+            }
+    4- content: url("../public/assets/imgs/img.png")
+        -- these image can control of width and height so modern way as below
+            .selector::before{
+                content: "";
+                background: url("../public/assets/imgs/img.png" center / cover no-repeat scroll;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+    5- content: open-quote | close-quote  => with quotes property on parent element
+        <blockquote>lorem</blockquote>
+        blockquote {
+            quotes: "open-quote-string-shape" "close-quote-string-shape"
+        }
+
+        blockquote::before {
+            content: open-quote;
+        }
+
+        blockquote::after {
+            content: close-quote;
+        }
+        
+    C- CSS aspect-ratio:
+        C/1- aspect-ratio
+        C/2- object-fit 
+
+        C/1- aspect-ratio:
+            -- aspect-ratio: width / height as proportion 
+            1- Perfect square images, instagram posts, profile avatar => aspect-ratio: 1 / 1;
+            2- Standard display or tablet photos => aspect-ratio: 4 / 3;
+            3- HD Youtube Videos, iframe, hero banner screen => aspect-ratio: 16 / 9;
+            4- Portrait Videos, TikTok Videos and instagram stories => aspect-ratio: 9 / 16;
+            5- Ultrawide screen view or cinematic view => aspect-ratio: 21 / 9;
+            6- Photography photos or classic cinema photos => aspect-ratio: 3 / 2;
+            7- Portrait photos, Pinterest pins => aspect-ratio: 2 / 3;
+            8- inherit the natural layout size => aspect-ratio: auto;
+        
+        C/2- object-fit:
+            -- object-fit: cover | contain | fill | none | scale-down
+            -- cover => crops sides of image and make it fit for its container (without expanding and squeezing image)
+            -- contain => fit image with its container but its leaves blank spaces (without expanding and squeezing image)
+            -- fill => fill the image with all its container size sometimes make pixels of image not in a correct proportions (with squeezing or expanding image)
+            -- none => make image take it natural size without any effect
+            -- scale-down => combine between contain + none
+            
+        -- Example on youtube video => 
+            .card__video {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+            }
+        -- do not use object-fit if you styled iframe element only use aspect-ratio
+*/

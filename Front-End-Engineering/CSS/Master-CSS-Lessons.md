@@ -92,8 +92,8 @@ NOT DONE YET 12 Topics
 3. Blend Modes => DONE
 4. Backdrop Filter => DONE
 5. Container Queries => DONE
-6. CSS Counters --- + all pseudo element patterns
-7. Aspect Ratio ---2
+6. CSS Counters => DONE all pseudo element patterns
+7. Aspect Ratio => DONE
 8. Performance Optimization---3
 9. Print Styles ---4
 10. Accessibility Features ---5
