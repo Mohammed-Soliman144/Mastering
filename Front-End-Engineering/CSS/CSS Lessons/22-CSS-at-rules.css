@@ -1,0 +1,293 @@
+/* CSS at rules
+
+    ** CSS at rules:
+        1- @media
+        2- @container
+        3- @keyframes
+        4- @font-face
+        5- @import
+        6- @layer
+        7- @supports
+        8- @property
+        9- @page
+
+        1- @media: 
+            -- CSS rule used for make webpage more responsive based on the viewport (width | height)
+            -- @media syntax:
+                @media media-type and (condition-name: condition-value) {
+                    .selector {
+                        property-name-1: property-value-1;
+                    }
+                }
+            -- media-type categories:
+                A- all (DEFAULT VALUE)
+                B- screen (supports all screens for smartphones, desktop screens, wide screens)
+                C- print (supports webpage in state printing when user hits ctrl + p)
+                D- speech (supports webpage view in screen readers)
+            -- media conditions:
+                @media screen and (min-width: 768px) {} => min-width equals >=
+                @media screen and (width >= 768px) {}
+                @media screen and (max-width: 768px) {} => max-width equals <=
+                @media screen and (width <= 768px) {}
+                @media screen and (min-width: 768px) and (max-width: 1024px) {}
+                @media screen and (768px <= width <= 1024px) {} 
+            -- CSS Media units:
+                vh, vw, vmin, vmax
+        2- @container:
+            -- CSS rule used for make reusable components or parts inside webpage more responsive based on its container
+            -- @container syntax:
+                @container container-name (condition-name: condition-value) {
+                    .selector {
+                        property-name-1: propert-value-1;
+                    }
+                }
+            -- How Boots up @container rule
+                A- set on the container parent element below properties:
+                    .parent {
+                        container-name: product-card;
+                        container-type: inline-size;
+                        ** shorthand for both above => container: container-name / container-type
+                    }
+            -- Container Units:
+                cqw, cqh, cqmin, cqmax, cqi, cqb
+                ** most best practice is used cqi, cqb => which is already 1% based on container-inline which supports all cases of writing-mode: horizontal-tp, vertical-lr, vertical-rl
+        
+        3- @keyframes:
+            -- CSS rules used for declare the animation-name property and what types of properties we run animation on it (animation process within timeline from start to end)
+            -- animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction animation-fill-mode animation-play-state;
+            -- animation-duration and animation-delay: num-ms | num-s; (mileseconds or seconds)
+            -- animation-timing-function:
+                A- ease => start-slow + middle-fast + ends-slow
+                B- ease-in => start-slow then fast
+                C- ease-out => start-fast ends-slow
+                D- ease-in-out => start-slow + middle-normal + ends-slow
+                E- linear => fixed animation with the same accelerate linear time from start to end
+                F- cubic-bezier(x1 y1, x2 y2)
+            -- animation-iteration-count: infinite | num;
+            -- animation-direction: 
+                A- normal (DEFAULT)
+                B- reverse
+                C- alternate
+                D- alternate-reverse
+            -- animation-fill-mode: 
+                A- none (DEFAULT VALUE)
+                B- forwards
+                C- backwards
+                D- both
+            -- animation-play-state
+                A- paused
+                B- running
+            --@keyframes 
+                @keyframes animation-name {
+                    from {
+                        property-name-1: property-value-1;
+                        property-name-2: property-value-2;
+                    }
+                    to {
+                        property-name-1: property-value-1;
+                        property-name-2: property-value-2;
+                    }
+                }
+                    OR
+                @keyframes animation-name {
+                    0% {
+                        property-name-1: property-value-1;
+                        property-name-2: property-value-2;
+                    }
+                    100% {
+                        property-name-1: property-value-1;
+                        property-name-2: property-value-2;
+                    }
+                }
+        4- @font-face:
+            -- CSS rule used for supports custom static fonts files in your webpage hosted on your server
+            -- @font-face syntax:
+
+            @font-face {
+                font-family: "custom-font-name";
+                src: url("../public/assets/fonts/custom-font-name.woff2") format("woff2");
+                font-style: normal;
+                font-display: swap;
+                font-weight: 500;
+            }
+            -- best practice for web fonts format is woff2 (most modern browsers supports) and old browser supports woff
+
+            :root {
+                font-family: "custom-font-name" sans-serif|serif; => supports full font stack with fallback value serif or sans-serif if any error happens in custom font
+            }
+        
+        5- @import:
+            -- CSS rule used for importing external resources files to css file.
+            -- @import must be set at the first line inside css file (always)
+            -- @import breaks performance of web application which depends on mechanism require to finish dowloading or importing the whole file then complete parsing css file if any error happens all css file crashed.
+            -- @import uses:
+                @import url("https://fonts.googleapis.com/css2?family=inter&display=swap");
+                @import url("../src/styles/globals.css")
+        
+        6- @layer:
+            -- @layer is a native pure css rule does not related tailwindcss.
+            -- @layer is CSS rule used for overcome css specificity and cascading issues by create any custom layer-name and when apply in styles look within this layer about specificity which means no any issues about override specificity.
+            -- @layer syntax:
+                @layer layer-name {
+                    .selector-1 {
+                        property-name-1: property-value-1;
+                        property-name-2: property-value-2;
+                    }
+                    .selector-2 {
+                        property-name-1: property-value-1;
+                        property-name-2: property-value-2;
+                    }
+                    etc...
+                }
+            -- also declare all layers in one line at the top css file
+                @layer base utilities components header;
+                then
+                @layer base {
+                    *,
+                    *::before,
+                    *::after {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+
+                -- note base always use for reseting styles, component for reusable component styles, utilities for short css properties common used which each utility do only one task (as functions in programming) as tailwindcss for example
+                    .flex {
+                        display: flex;
+                    }
+                    .justify-center {
+                        justify-content: center;
+                    }
+        7- @supports:
+            -- @supports is CSS rule used for check if the current browser is supports this property or not if supports apply the whole styles related to this property if not ignored the whole styles that wraps inside @supports
+            -- @supports example
+                @supports (mask: mask-image position / size mask-repeat mask-origin mask-clip) {
+                    .selector-1 {
+                        property-name-1: property-value-1;
+                        property-name-2: property-value-2;
+                    }
+                    .selector-2 {
+                        property-name-1: property-value-1;
+                        property-name-2: property-value-2;
+                    }
+                    etc...
+                }
+        8- @property
+            -- @property is CSS rule used for enabling css variables from animating or transition on it css variables values after changing which as common and normal all css variables are fixed can not modify on it.
+            -- @property syntax:
+                @property --variable-name {
+                    syntax: "<angle>" | "<color>" | "<percentage>" | "<integer>" | "<number>";
+                    inherits: true or false;
+                    initial-value: any-value-related-to-variable-type;
+                }
+                -- syntax supports 
+                    "<angle>" => for gradient colors with deg, rad, turn
+                    "<color>" => for all color values
+                    "<percentage>" => for all directions top | right | bottom | left
+                    "<number>" => for opacity 0.0 to 1.0
+                    "<integer>" => for counters inside animation
+                -- when declare variables with @property you can use variable inside @keyframes or element with var(--variable-name) function but still need when use another function like linear-gradient or conic-gradient and so on.
+                -- must set @property rule at the first top line in css file
+                -- or set @property by register in js
+                    window.CSS.registerProperty({
+                        name: "--gradient-btn",
+                        syntax: "<angle>",
+                        inherits: false,
+                        initial-value: '0deg'
+                    })
+            -- example on button with conic-gradient animation
+                <button class="btn">Hover on</button>
+                @property --gradient-btn {
+                    syntax: "<angle>";
+                    inherits: false;
+                    initial-value: 0deg;
+                }
+                .btn {
+                    --gradient-btn: 0deg;
+                    font-family: inter, sans-serif;
+                    cursor: pointer;
+                    padding: 12px 24px;
+                    border: 3px solid transparent;
+                    border-radius: 8px;
+                    background: #111;
+                    background-clip: padding-box;
+                    color: #fff;
+                    position: relative;
+                    z-index: 0;
+                }
+
+                .btn::before {
+                    content: "";
+                    position: absolute;
+                    inset: -3px;
+                    background: conic-gradient(from var(--gradient-btn), #ff4436, #080, #ff4436);
+                    border-radius: inherit;
+                    z-index: -1;
+                }
+
+                .btn:hover::before {
+                    animation: bordered-animated 0.6s ease infinite;
+                }
+
+                @keyframes bordered-animated {
+                    from {
+                        --gradient-btn: 0deg;
+                    } 
+                    to {
+                        --gradient-btn: 360deg;
+                    }
+                }
+        9- @page:
+            -- @page is CSS rule used for control layout of webpage (margin, padding,etc...) when user printed the page or hits ctrl + p
+            -- must set @page rule at the top level of css file
+            -- practical common example on @page:
+                @page {
+                    size: A4 portrait;
+                    margin: 2cm;
+                }
+
+                @page :first {
+                    margin: 5cm;
+                }
+
+                @page :left, @page :right {
+                    margin: 6cm;
+                }
+
+                @media print {
+                    .nav, .header, .footer, .sidebar, .no-print, button {
+                        display: none;
+                    }
+
+                    body {
+                        background: #fff;
+                        color: #000;
+                        font-family: Georgia, "Times New Remon", serif;
+                        font-size: 12pt;
+                    }
+
+                    h1, h2, h3, h4, h5, h6 {
+                        break-after: avoid;
+                    }
+
+                    figure, table, img {
+                        break-inside: avoid;
+                    }
+
+                    
+                    p {
+                        orphans: 3; => left three lines of paragraph at the bottom of current page at least
+                        windows: 3; => left three lines of paragraph at the top of the next page
+                    }
+
+                    .section__chapter {
+                        break-before: page;
+                    }
+
+                    a::after {
+                        content: "( " attr(href) " )";
+                        font-size: 0.85em;
+                    }
+                }
+*/
