@@ -194,7 +194,7 @@
                         name: "--gradient-btn",
                         syntax: "<angle>",
                         inherits: false,
-                        initial-value: '0deg'
+                        initialValue: '0deg'
                     })
             -- example on button with conic-gradient animation
                 <button class="btn">Hover on</button>
