@@ -240,7 +240,7 @@ sup {
 }
 
 .main-header__btn-hamburger.is-open + .main-header__nav {
-  display: flex;
+  display: block;
   position: absolute;
   top: 60px;
   left: 0;
@@ -248,22 +248,63 @@ sup {
   z-index: 100;
   color: #333;
   background: color-mix(in srgb, #edf2f4, #cbf3f0);
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 3.5rem;
   border-radius: 0 0 8px 0;
+  opacity: 0;
+  animation: popdown 0.4s ease forwards;
+}
+
+@keyframes popdown {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .main-header__list {
   flex: 1;
   display: flex;
   flex-flow: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.125rem;
   padding-left: 0;
 }
 
 .main-header__list-item {
+  font-size: 1.125em;
+}
+
+.main-header__link {
+  transition: color 150ms ease;
+  position: relative;
+}
+
+.main-header__link:hover {
+  color: #0066cc;
+}
+
+.main-header__link::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  width: 0;
+  height: 4px;
+  background: currentColor;
+  transition: width 150ms ease;
+}
+
+.main-header__link:is(:hover, :focus)::after {
   width: 100%;
+}
+
+.main-header__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .main-header__link {
@@ -275,4 +316,43 @@ sup {
 
 .main-header__btn {
   display: none;
+  transition: all 0.4s ease;
+  opacity: 0;
+  animation: popdown 0.4s ease forwards;
+}
+
+.main-header__btn-hamburger.is-open
+  + .main-header__nav
+  + .main-header__cta
+  > .button {
+  display: block;
+  padding: 0.5rem 1rem;
+  background-color: #0066cc;
+  color: #fff;
+  border-radius: 4px;
+  position: absolute;
+  top: 260px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  font-weight: 700;
+}
+
+.main-header__btn-hamburger.is-open
+  + .main-header__nav
+  + .main-header__cta
+  > .button:is(:active, :hover, :focus) {
+  background-color: color-mix(in srgb, rgb(0, 102, 204) 85%, transparent);
+  box-shadow: 0 4px 8px rgb(0 102 204 / 0.8);
+}
+
+@media screen and (width >= 768px) {
+  .main-header__btn-hamburger {
+    display: none;
+  }
+  .main-header__nav {
+    position: relative;
+    order: 2;
+    display: flex;
+  }
 }
