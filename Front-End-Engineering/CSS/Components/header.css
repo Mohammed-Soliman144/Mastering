@@ -1,0 +1,278 @@
+/* ============================================================================== */
+/* ========================== RESET ============================================= */
+/* ============================================================================== */
+
+/* 1- BOX SIZING */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 2- BODY AND HTML */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-text-rendering: optimizeSpeed;
+  text-rendering: optimizeSpeed;
+  scroll-behavior: smooth;
+}
+
+body,
+#root,
+#app {
+  min-height: 100vh;
+  line-height: 1.6;
+  font-size: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3- TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+p {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+/* 4- LISTs */
+ul,
+ol {
+  list-style: none;
+  padding-left: 1.25em;
+}
+
+/* 5- LINKS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 6- TABLES */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 7- MEDIA */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img[width][height] {
+  height: auto;
+}
+
+svg {
+  fill: currentColor;
+}
+
+iframe {
+  border: 0;
+}
+
+/* 8- FORM */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button {
+  background: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+fieldset {
+  border: none;
+  min-width: 0;
+}
+
+/* 9- PSEUDO CLASSES AND ELEMENTS */
+::placeholder {
+  opacity: 1;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* 10- OTHER ELEMENTS => HIDDEN ATTR, ADDRESS, HR, SUB, SUP */
+[hidden] {
+  display: none !important;
+}
+
+address {
+  font-style: normal;
+}
+
+hr {
+  border: none;
+  border-bottom: 2px solid currentColor;
+  opacity: 0.2;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* 11- MEDIA QUERIES => REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================================================================== */
+/* ============================= HEADER COMPONENTS ========================================== */
+/* ========================================================================================== */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  padding: 1rem 2rem;
+  background: #000;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0 0 4px 0;
+  transition: outline 150ms ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #333;
+  outline-offset: 2px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  color: #333;
+  background: color-mix(in srgb, #edf2f4, #cbf3f0);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 8px rgb(255 255 255 /0.5);
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.main-header__logo {
+  font-size: 1.12em;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-transform: capitalize;
+  transition: color 150ms ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.main-header__logo:has(a):hover,
+.main-header__logo:has(a):focus {
+  color: #0066cc;
+}
+
+.main-header__logo:has(a):focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 1px;
+}
+
+.main-header__btn-hamburger {
+  order: 4;
+}
+
+.main-header__btn-hamburger.is-open + .main-header__nav {
+  display: flex;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  color: #333;
+  background: color-mix(in srgb, #edf2f4, #cbf3f0);
+  padding: 1rem 2rem;
+  border-radius: 0 0 8px 0;
+}
+
+.main-header__list {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 0;
+}
+
+.main-header__list-item {
+  width: 100%;
+}
+
+.main-header__link {
+  text-align: center;
+}
+.main-header__nav {
+  display: none;
+}
+
+.main-header__btn {
+  display: none;
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=devic-width, initial-scale=1.0" />
+    <title>CSS Header Components</title>
+    <meta name="description" content="All CSS3 layout for header component" />
+    <meta name="author" content="Muhammed Soliman" />
+    <meta
+      name="keywords"
+      content="HTML5, Aria-attributes, Accessibility and CSS3"
+    />
+    <link rel="canonical" href="https://maindomain.com" />
+    <link rel="stylesheet" href="header.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="main-header" role="banner">
+      <div class="main-header__logo">
+        <a class="main-header__link" href="/"> Company name </a>
+      </div>
+      <button
+        class="main-header__btn-hamburger button button--primary"
+        type="button"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Mobile Toggle Menu Button"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          aria-hidden="true"
+          focusable="false"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav
+        class="main-header__nav"
+        aria-label="Main Navigation Menu"
+        id="mobile-menu"
+      >
+        <ul class="main-header__list">
+          <li class="main-header__list-item">
+            <a class="main-header__link" href="#documentation">Documentation</a>
+          </li>
+          <li class="main-header__list-item">
+            <a class="main-header__link" href="#pricing">Pricing</a>
+          </li>
+          <li class="main-header__list-item">
+            <a class="main-header__link" href="#contacts">Contacts</a>
+          </li>
+          <li class="main-header__list-item">
+            <a class="main-header__link" href="#blog">Blog</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-header__cta">
+        <button
+          class="main-header__btn button button--primary"
+          type="button"
+          aria-label="Signup for free account"
+        >
+          Signup
+        </button>
+      </div>
+    </header>
+    <script src="header.js"></script>
+  </body>
+</html>
