@@ -1,7 +1,8 @@
-const hamburgerBtn = document.getElementsByClassName('main-header__btn-hamburger')[0];
+const hamburgerBtn = document.getElementById('hamburgerBtn');
 
 hamburgerBtn.addEventListener("click", function (e) {
     e.preventDefault()
-    e.currentTarget.classList.toggle("is-open")
+    // Toggle if toggled class return true if not return false
+    const isOpen =  e.currentTarget.classList.toggle("is-open")
+    e.currentTarget.setAttribute("aria-expanded", String(isOpen))
 })
-

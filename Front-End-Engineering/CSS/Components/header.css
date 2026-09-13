@@ -18,7 +18,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  -webkit-text-rendering: optimizeSpeed;
+  /* -webkit-text-rendering: optimizeSpeed; */
   text-rendering: optimizeSpeed;
   scroll-behavior: smooth;
 }
@@ -210,10 +210,12 @@ sup {
   padding: 1rem 2rem;
   color: #333;
   background: color-mix(in srgb, #edf2f4, #cbf3f0);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   box-shadow: 0 4px 8px rgb(255 255 255 /0.5);
   flex-wrap: wrap;
   position: relative;
+  z-index: 100;
 }
 
 .main-header__logo {
@@ -330,29 +332,57 @@ sup {
   background-color: #0066cc;
   color: #fff;
   border-radius: 4px;
-  position: absolute;
-  top: 260px;
-  left: 0;
-  right: 0;
-  z-index: 100;
   font-weight: 700;
+}
+
+.main-header__btn:is(:active, :hover, :focus) {
+  background-color: color-mix(in srgb, rgb(0, 102, 204) 85%, transparent);
+  box-shadow: 0 4px 8px rgb(0 102 204 / 0.8);
 }
 
 .main-header__btn-hamburger.is-open
   + .main-header__nav
   + .main-header__cta
-  > .button:is(:active, :hover, :focus) {
-  background-color: color-mix(in srgb, rgb(0, 102, 204) 85%, transparent);
-  box-shadow: 0 4px 8px rgb(0 102 204 / 0.8);
+  > .button {
+  position: absolute;
+  top: 260px;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 @media screen and (width >= 768px) {
   .main-header__btn-hamburger {
     display: none;
   }
-  .main-header__nav {
-    position: relative;
-    order: 2;
+
+  .main-header__btn-hamburger.is-open + .main-header__nav,
+  .main-header__btn-hamburger + .main-header__nav {
+    flex: 1;
+    position: static;
     display: flex;
+    padding: 0.5rem 2rem;
+  }
+
+  .main-header__list {
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .main-header__btn-hamburger.is-open
+    + .main-header__nav
+    + .main-header__cta
+    > .button,
+  .main-header__btn {
+    position: static;
+    display: inline-flex;
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: #0066cc;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 700;
   }
 }
