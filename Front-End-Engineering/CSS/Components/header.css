@@ -218,7 +218,7 @@ sup {
   z-index: 100;
 }
 
-.main-header__logo {
+.main-header__wrapper {
   font-size: 1.12em;
   font-weight: 700;
   letter-spacing: -1px;
@@ -227,12 +227,12 @@ sup {
   flex-shrink: 0;
   white-space: nowrap;
 }
-.main-header__logo:has(a):hover,
-.main-header__logo:has(a):focus {
+.main-header__logo:hover,
+.main-header__logo:focus {
   color: #0066cc;
 }
 
-.main-header__logo:has(a):focus-visible {
+.main-header__logo:focus-visible {
   outline: 3px solid currentColor;
   outline-offset: 1px;
 }
@@ -323,10 +323,7 @@ sup {
   animation: popdown 0.4s ease forwards;
 }
 
-.main-header__btn-hamburger.is-open
-  + .main-header__nav
-  + .main-header__cta
-  > .button {
+.main-header__btn-hamburger.is-open ~ .main-header__cta > .button {
   display: block;
   padding: 0.5rem 1rem;
   background-color: #0066cc;
@@ -340,10 +337,7 @@ sup {
   box-shadow: 0 4px 8px rgb(0 102 204 / 0.8);
 }
 
-.main-header__btn-hamburger.is-open
-  + .main-header__nav
-  + .main-header__cta
-  > .button {
+.main-header__btn-hamburger.is-open ~ .main-header__cta > .button {
   position: absolute;
   top: 260px;
   left: 0;
@@ -371,10 +365,7 @@ sup {
     gap: 1.5rem;
   }
 
-  .main-header__btn-hamburger.is-open
-    + .main-header__nav
-    + .main-header__cta
-    > .button,
+  .main-header__btn-hamburger.is-open ~ .main-header__cta > .button,
   .main-header__btn {
     position: static;
     display: inline-flex;
