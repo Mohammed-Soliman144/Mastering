@@ -16,3 +16,21 @@ document.addEventListener("keydown", function (e) {
         hamburgerBtn.focus()
     }
 })
+
+
+/* STICKY HEADER */
+const stickyBtn = document.querySelector("header.sticky .header__wrapper > .header__toggle-btn")
+
+stickyBtn.addEventListener("click", (e) => {
+    const isToggled = e.currentTarget.classList.toggle("is-open");
+    e.currentTarget.setAttribute("aria-expanded", String(isToggled));
+})
+
+document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape" && stickyBtn.classList.contains("is-open")) {
+        stickyBtn.classList.remove("is-open")
+        stickyBtn.setAttribute("aria-expanded", "false");
+    }
+})
+
+
