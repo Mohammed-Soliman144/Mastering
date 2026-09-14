@@ -1,4 +1,4 @@
-const hamburgerBtn = document.getElementById('hamburgerBtn');
+const hamburgerBtn = document.getElementById('hamburger-btn');
 
 hamburgerBtn.addEventListener("click", function (e) {
     // not need to use e.preventDefault which button type=buttton not submit which means not trigger page reload
@@ -19,7 +19,9 @@ document.addEventListener("keydown", function (e) {
 
 
 /* STICKY HEADER */
-const stickyBtn = document.querySelector("header.sticky .header__wrapper > .header__toggle-btn")
+const stickyBtn = document.querySelector("header.second .header__wrapper > .header__toggle-btn")
+const navLinks = document.querySelectorAll("header.second .header__nav  ul li a")
+const headerSticky = document.querySelector("header.second")
 
 stickyBtn.addEventListener("click", (e) => {
     const isToggled = e.currentTarget.classList.toggle("is-open");
@@ -27,10 +29,28 @@ stickyBtn.addEventListener("click", (e) => {
 })
 
 document.addEventListener("keydown", (e) => {
-    if(e.key === "Escape" && stickyBtn.classList.contains("is-open")) {
+     if (stickyBtn.classList.contains("is-open") && e.key === "Escape") {
         stickyBtn.classList.remove("is-open")
-        stickyBtn.setAttribute("aria-expanded", "false");
+        stickyBtn.setAttribute("aria-expanded", "false")
+        stickyBtn.focus()
     }
+})
+
+document.addEventListener("click", (e) => {
+    if(!headerSticky.contains(e.target) && stickyBtn.classList.contains("is-open")) {
+        stickyBtn.classList.remove("is-open")
+        stickyBtn.setAttribute("aria-expanded", "false")
+        stickyBtn.focus()
+    }
+})
+
+
+window.addEventListener("scroll", () => {
+    if(window.scrollY >= 80) {
+        headerSticky.classList.add("sticky")
+    } else {
+        headerSticky.classList.remove("sticky")
+    } 
 })
 
 
