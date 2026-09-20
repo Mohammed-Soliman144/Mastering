@@ -51,18 +51,21 @@ var invertTree =  function (root) {
 }
 
 /*   BFS algorithm - tracing
-    // Edge Case if root is null return null
-    // queue => [] empty
-    // queue.push(root) becomes => [4]
-    // while(queue.length > 0) => iterate to all elements in queue until length equal zero or empty
-    // let current = queue.shift() // so queue becomes [] and current = 4 (root)
-    // Modification in place [current.left, current.right] = [current.right, current.left] so before 2 <== 4 ==> 7 becomes  7 <== 4 ==> 2
-    // if(current.left) queue.push(current.left) so queue => [7]
-    // if(current.right) queue.push(current.right)so queue => [7,2]
+    
+    Breadth First Search Algorithm (BFS) => its algorithm used to traversing tree to explore neighbors nodes level by level (wider - horizontally)
 
+    -- Tracing BFS Algorithms: 
+        1- Create Queue (follow FIFO)
+        2- push root of tree in queue
+        3- iterate all queue elements until length is 0 (empty)
+        4- remove node from queue and store it in temp variable (shift method)
+        5- process node itself
+        6- remove node 
+        7- add its children
+        8- repeat iteration again
 */
 
-var invertBinaryTree = function(root) {
+var invertBinaryTreeByBFS = function(root) {
     // BFS (Breadth First Search) - Not Optimal Solution
     // BFS using queue (FIFO)
     // O(N): T and O(N): S

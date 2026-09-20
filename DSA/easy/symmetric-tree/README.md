@@ -36,7 +36,7 @@ var isSymmetric = function(root) {
     // Symmetric => same values of each node in opposite positions
     function isMirror(left, right) {
         // Base Case of recursion (stops)
-        // note recursion here build on group of conditions not any loop
+        // note recursion here build on group of conditions
         // both sides of node are null => so symmetric
         if(left === null && right === null) return true
         // on of side is null and other side is not null => non-symmetric
