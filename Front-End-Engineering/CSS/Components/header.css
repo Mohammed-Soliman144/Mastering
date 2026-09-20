@@ -656,3 +656,51 @@ body {
     flex: 1;
   }
 }
+
+/* ========================================================================================== */
+/* =======================       Fixed Header Component      =============================== */
+/* ========================================================================================== */
+.fixed-header {
+  position: fixed;
+  background-color: #0066cc;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  z-index: 101;
+  background:
+    radial-gradient(circle at top left, #0d1b2a, #274c77, transparent),
+    radial-gradient(circle at top right, #274c77, #0d1b2a, transparent) center /
+      cover fixed no-repeat;
+  border-radius: 45px;
+  -webkit-backdrop-filter: blur(4px) opacity(0.8);
+  backdrop-filter: blur(4px) opacity(0.8);
+  filter: drop-shadow(0 4px 2px #0d1b2a);
+  box-shadow: 0 4px 12px 1px rgb(0 0 0 / 0.05);
+}
+
+.fixed-header__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.fixed-header__logo {
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.fixed-header__company {
+  white-space: nowrap;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.fixed-header__nav {
+  flex: 1;
+}
+.fixed-header__list {
+  flex: 1;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
