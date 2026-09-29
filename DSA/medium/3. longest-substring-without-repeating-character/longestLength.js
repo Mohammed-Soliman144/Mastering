@@ -29,7 +29,6 @@ var longestLength = function(s) {
             seen.delete(s[right])
         }
         seen.set(s[right], right)
-        right++
         maxLength = Math.max(maxLength, right - left + 1)
     }
     return maxLength
