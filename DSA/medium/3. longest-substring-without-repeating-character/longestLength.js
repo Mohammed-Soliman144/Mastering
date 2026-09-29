@@ -18,3 +18,19 @@ var longestLength = function(s) {
     }
     return maxLength
 }
+
+var longestLength = function(s) {
+    const seen = new Map()
+    let left = 0, maxLength = 0
+
+    for(let right = 0; right < s.length; right++) {
+        if(seen.has(s[right]) && seen.get(s[right]) >= left) {
+            left = seen.get(s[right]) + 1
+            seen.delete(s[right])
+        }
+        seen.set(s[right], right)
+        right++
+        maxLength = Math.max(maxLength, right - left + 1)
+    }
+    return maxLength
+}
